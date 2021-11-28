@@ -7,8 +7,8 @@ public class NavMeshGridEditor : Editor
 {
     private NavMeshGrid Target => target as NavMeshGrid;
 
-    private Vector2 _nodesHorizontalOffset = Vector2.up;
-    private Vector2 _nodesVerticalOffset = Vector2.right;
+    private Vector2 _nodesHorizontalOffset = Vector2.right;
+    private Vector2 _nodesVerticalOffset = Vector2.up;
 
     private void OnSceneGUI()
     {
@@ -34,6 +34,14 @@ public class NavMeshGridEditor : Editor
 
         foreach (var node in Target.Nodes)
         {
+            Handles.BeginGUI();
+
+            GUI.TextField(
+                position: new Rect(HandleUtility.WorldToGUIPoint(node.Position), new Vector2(60, 20)), 
+                text: $"{node.Index.Row} {node.Index.Column}");
+
+            Handles.EndGUI();
+
             foreach (var neighboringNode in node.AllNeighboringNodes)
                 Handles.DrawLine(node.Position, neighboringNode.Position);
 
@@ -46,10 +54,18 @@ public class NavMeshGridEditor : Editor
 
                 var buttonSize = new Vector2(50f, 20f);
 
-                if (GUI.Button(new Rect(HandleUtility.WorldToGUIPoint(node.Position + GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize), $"+{side}"))
+                var addNewNodeButtonClicked = GUI.Button(
+                    position: new Rect(HandleUtility.WorldToGUIPoint(node.Position + GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize),
+                    text: $"+{side}");
+
+                if (addNewNodeButtonClicked)
                 {
-                    node.AddNeighboringNode(side, new NavMeshGridNode());
+                    var newNodeIndex = Index.NewIndexBySide(side, node.Index);
+
+                    Target.AddNewNode(newNodeIndex);
+
                     Debug.Log($"Node added to {side}");
+                    return;
                 }
 
                 Handles.EndGUI();
@@ -59,11 +75,10 @@ public class NavMeshGridEditor : Editor
         }
 
         Handles.color = Color.red;
-        Handles.DrawLine(Vector2.zero, _nodesHorizontalOffset);
+        Handles.DrawLine(Target.RootNode.Position, _nodesHorizontalOffset);
 
         Handles.color = Color.green;
-        Handles.DrawLine(Vector2.zero, _nodesVerticalOffset);
-
+        Handles.DrawLine(Target.RootNode.Position, _nodesVerticalOffset);
     }
 
     private Vector2 GetOffsetBySide(NeighboringNodeSide neighboringNodeSide)
@@ -72,8 +87,8 @@ public class NavMeshGridEditor : Editor
         {
             NeighboringNodeSide.Left => -_nodesHorizontalOffset,
             NeighboringNodeSide.Right => _nodesHorizontalOffset,
-            NeighboringNodeSide.Lower => _nodesVerticalOffset,
-            NeighboringNodeSide.Upper => -_nodesVerticalOffset,
+            NeighboringNodeSide.Lower => -_nodesVerticalOffset,
+            NeighboringNodeSide.Upper => _nodesVerticalOffset,
             _ => Vector2.zero,
         };
     }

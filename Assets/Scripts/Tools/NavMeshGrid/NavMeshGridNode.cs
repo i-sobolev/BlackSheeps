@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class NavMeshGridNode
 {
-    private NavMeshGridNode[] _neighboringNodes = new NavMeshGridNode[8];
+    private Index _index;
 
+    private NavMeshGridNode[] _neighboringNodes = new NavMeshGridNode[8];
     private Vector2 _position;
+
+    public NavMeshGridNode(Index index)
+    {
+        _index = index;
+    }
+
+    public Index Index => new Index(_index);
 
     public IEnumerable<NavMeshGridNode> AllNeighboringNodes
     {
@@ -66,16 +74,4 @@ public class NavMeshGridNode
         var currentSideId = (int)currentSide;
         return (NeighboringNodeSide)(currentSideId % 2 == 0 ? currentSideId + 1 : currentSideId - 1);
     }
-}
-
-public enum NeighboringNodeSide
-{
-    Left = 0,
-    Right = 1,
-    Upper = 2,
-    Lower = 3,
-    UpperLeft = 4,
-    LowerRight = 5,
-    UpperRight = 6,
-    LowerLeft = 7
 }

@@ -3,33 +3,56 @@ using UnityEngine;
 
 public class NavMeshGrid : MonoBehaviour
 {
-    private List<NavMeshGridNode> _nodes;
+    private List<NavMeshGridNode> _nodes = new List<NavMeshGridNode>();
     public IEnumerable<NavMeshGridNode> Nodes => _nodes;
 
-    private void OnValidate()
+    public NavMeshGridNode RootNode => _nodes[0];
+
+    private void Reset()
     {
-        _nodes = new List<NavMeshGridNode>();
+        _nodes.Clear();
+        _nodes.Add(new NavMeshGridNode(new Index(0, 0)));
+    }
 
-        var node11 = new NavMeshGridNode();
-        var node12 = new NavMeshGridNode();
-        var node21 = new NavMeshGridNode();
-        var node22 = new NavMeshGridNode();
+    [ExecuteAlways]
+    private void UpdatePosition() => RootNode.SetPosition(transform.position);
 
-        node11.AddNeighboringNode(NeighboringNodeSide.Right, node12);
-        node11.AddNeighboringNode(NeighboringNodeSide.Lower, node21);
-        node11.AddNeighboringNode(NeighboringNodeSide.LowerRight, node22);
+    public bool GetNodeByIndex(Index index, out NavMeshGridNode node)
+    {
+        node = _nodes.Find(node => node.Index == index);
+        return node != null;
+    }
 
-        node12.AddNeighboringNode(NeighboringNodeSide.LowerLeft, node21);
+    public void AddNewNode(Index index)
+    {
+        var newNode = new NavMeshGridNode(index);
+        
+        _nodes.Add(newNode);
 
-        node22.AddNeighboringNode(NeighboringNodeSide.Upper, node12);
-        node22.AddNeighboringNode(NeighboringNodeSide.Left, node21);
+        var newNodeIndex = newNode.Index;
+     
+        if (GetNodeByIndex(newNodeIndex.Left(), out var leftNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.Left, leftNode);
 
-        _nodes = new List<NavMeshGridNode>()
-        {
-            node11,
-            node12,
-            node21,
-            node22
-        };
+        if (GetNodeByIndex(newNodeIndex.Right(), out var rightNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.Right, rightNode);
+
+        if (GetNodeByIndex(newNodeIndex.Upper(), out var upperNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.Upper, upperNode);
+
+        if (GetNodeByIndex(newNodeIndex.Lower(), out var lowerNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.Lower, lowerNode);
+
+        if (GetNodeByIndex(newNodeIndex.UpperLeft(), out var upperLeftNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.UpperLeft, upperLeftNode);
+
+        if (GetNodeByIndex(newNodeIndex.UpperRight(), out var upperRightNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.UpperRight, upperRightNode);
+
+        if (GetNodeByIndex(newNodeIndex.LowerLeft(), out var lowerLeftNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.LowerLeft, lowerLeftNode);
+
+        if (GetNodeByIndex(newNodeIndex.LowerRight(), out var lowerRightNode))
+            newNode.AddNeighboringNode(NeighboringNodeSide.LowerRight, lowerRightNode);
     }
 }
