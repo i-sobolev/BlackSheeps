@@ -1,128 +1,76 @@
 Using pre-set license
-Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19043.1348; Version 2009; 64bit' Language: 'ru' Physical Memory: 16337 MB
+Built from '2020.3/staging' branch; Version is '2020.3.23f1 (c5d91304a876) revision 12966163'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 19042.1348; Version 2009; 64bit' Language: 'ru' Physical Memory: 8033 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
- COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
+COMMAND LINE ARGUMENTS:
+D:\Programs\Unity\2020.3.23f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-F:/Desktop/Unity/BlackSheeps/Black Sheeps
+D:/Workshop/Projects/Unity Proj/BlackSheeps
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61643
-Successfully changed project path to: F:/Desktop/Unity/BlackSheeps/Black Sheeps
-F:/Desktop/Unity/BlackSheeps/Black Sheeps
+59574
+Successfully changed project path to: D:/Workshop/Projects/Unity Proj/BlackSheeps
+D:/Workshop/Projects/Unity Proj/BlackSheeps
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 40.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 59.83 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2020.3.11f1 (99c7afb366b3)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path F:/Desktop/Unity/BlackSheeps/Black Sheeps/Assets
+Initialize engine version: 2020.3.23f1 (c5d91304a876)
+[Subsystems] Discovering subsystems at path D:/Programs/Unity/2020.3.23f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Workshop/Projects/Unity Proj/BlackSheeps/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c91)
     Vendor:   
-    VRAM:     8088 MB
-    Driver:   30.0.14.9676
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+    VRAM:     2996 MB
+    Driver:   27.21.14.6280
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56640
+Mono path[0] = 'D:/Programs/Unity/2020.3.23f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Programs/Unity/2020.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Programs/Unity/2020.3.23f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56428
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001847 seconds.
+Register platform support module: D:/Programs/Unity/2020.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001040 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 44.06 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 53.34 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.425 seconds
+- Completed reload, in  0.599 seconds
+Domain Reload Profiling:
+	ReloadAssembly (599ms)
+		BeginReloadAssembly (56ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (474ms)
+			LoadAssemblies (55ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (154ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (185ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (53ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (77ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003957 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 39.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.023 seconds
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2735 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 120.2 MB.
-System memory in use after: 120.4 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 3174.
-Total: 2.066000 ms (FindLiveObjects: 0.290200 ms CreateObjectMapping: 0.171000 ms MarkObjects: 1.543900 ms  DeleteObjects: 0.059900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  requireTextureImportCompression: false -> true
-========================================================================
-Received Import Request.
-  path: Assets/mouseIco1.png
-  artifactKey: Guid(55d90558a9ba8054ca6b79ced8c9487f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/mouseIco1.png using Guid(55d90558a9ba8054ca6b79ced8c9487f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc15c219e47c849e8be9726d9cc8b29a') in 0.074278 seconds
-  Import took 0.077488 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/DefaultSpritePreset.preset
-  artifactKey: Guid(487978ef911e6fb49b69eafc8114f410) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DefaultSpritePreset.preset using Guid(487978ef911e6fb49b69eafc8114f410) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6761ba3fda7afdc1c8bf16f5661ed10d') in 0.005555 seconds
-  Import took 0.008557 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000172 seconds.
-  path: Assets/mouseIco2.png
-  artifactKey: Guid(2fc0df3828d7883498f8c7984cb33cf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/mouseIco2.png using Guid(2fc0df3828d7883498f8c7984cb33cf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd455f34c39d58dff6dda041ed0788040') in 0.006155 seconds
-  Import took 0.009687 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.820747 seconds.
-  path: Assets/Addons
-  artifactKey: Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Addons using Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3394c8d34f11f6f93e5fea0184f5a35d') in 0.001689 seconds
-  Import took 0.006778 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.013491 seconds.
-  path: Assets/Addons
-  artifactKey: Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Addons using Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3394c8d34f11f6f93e5fea0184f5a35d') in 0.001293 seconds
-  Import took 0.005341 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.642837 seconds.
-  path: Assets/Scripts
-  artifactKey: Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts using Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46314f786f07540a323c2f14402f3b9c') in 0.001381 seconds
-  Import took 0.005501 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000717 seconds.
-  path: Assets/Scripts
-  artifactKey: Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts using Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46314f786f07540a323c2f14402f3b9c') in 0.001308 seconds
-  Import took 0.005154 seconds .
-
+Registered in 0.004309 seconds.
