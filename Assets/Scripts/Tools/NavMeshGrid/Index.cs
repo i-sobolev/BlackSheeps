@@ -47,12 +47,12 @@ public struct Index
 
 public static class IndexExtentions
 {
-    public static Index Left(this Index x) => new Index(x.Column, x.Row - 1);
-    public static Index Right(this Index x) => new Index(x.Column, x.Row + 1);
-    public static Index Upper(this Index x) => new Index(x.Column + 1, x.Row);
-    public static Index Lower(this Index x) => new Index(x.Column - 1, x.Row);
-    public static Index UpperRight(this Index x) => new Index(x.Column + 1, x.Row + 1);
-    public static Index UpperLeft(this Index x) => new Index(x.Column + 1, x.Row - 1);
-    public static Index LowerRight(this Index x) => new Index(x.Column - 1, x.Row + 1);
-    public static Index LowerLeft(this Index x) => new Index(x.Column - 1, x.Row - 1);
+    public static Index Left(this Index x) => new Index(x.Row - 1, x.Column);
+    public static Index Right(this Index x) => new Index(x.Row + 1, x.Column);
+    public static Index Upper(this Index x) => new Index(x.Row, x.Column + 1);
+    public static Index Lower(this Index x) => new Index(x.Row, x.Column - 1);
+    public static Index UpperRight(this Index x) => new Index(x.Row + 1, x.Column + 1);
+    public static Index UpperLeft(this Index x) => new Index(x.Row - 1, x.Column + 1);
+    public static Index LowerRight(this Index x) => new Index(x.Row + 1, x.Column - 1);
+    public static Index LowerLeft(this Index x) => new Index(x.Row - 1, x.Column - 1);
 }

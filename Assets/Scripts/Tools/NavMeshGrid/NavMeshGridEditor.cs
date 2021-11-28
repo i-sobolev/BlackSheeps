@@ -36,7 +36,7 @@ public class NavMeshGridEditor : Editor
         {
             Handles.BeginGUI();
 
-            GUI.TextField(
+            GUI.Label(
                 position: new Rect(HandleUtility.WorldToGUIPoint(node.Position), new Vector2(60, 20)), 
                 text: $"{node.Index.Row} {node.Index.Column}");
 
