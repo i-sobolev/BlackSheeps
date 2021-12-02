@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NavMeshGrid : MonoBehaviour
@@ -25,32 +26,15 @@ public class NavMeshGrid : MonoBehaviour
         var newNode = ScriptableObject.CreateInstance<NavMeshGridNode>().Initialize(index);
         
         _nodes.Add(newNode);
-
-        var newNodeIndex = newNode.Index;
      
-        if (GetNodeByIndex(newNodeIndex.Left(), out var leftNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.Left, leftNode);
+        void TryAddNeghboringNode(Side side)
+        {
+            if (GetNodeByIndex(newNode.Index.IndexBySide(side), out var foundedNode))
+                newNode.AddNeighboringNode(side, foundedNode);
+        }
 
-        if (GetNodeByIndex(newNodeIndex.Right(), out var rightNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.Right, rightNode);
-
-        if (GetNodeByIndex(newNodeIndex.Upper(), out var upperNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.Upper, upperNode);
-
-        if (GetNodeByIndex(newNodeIndex.Lower(), out var lowerNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.Lower, lowerNode);
-
-        if (GetNodeByIndex(newNodeIndex.UpperLeft(), out var upperLeftNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.UpperLeft, upperLeftNode);
-
-        if (GetNodeByIndex(newNodeIndex.UpperRight(), out var upperRightNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.UpperRight, upperRightNode);
-
-        if (GetNodeByIndex(newNodeIndex.LowerLeft(), out var lowerLeftNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.LowerLeft, lowerLeftNode);
-
-        if (GetNodeByIndex(newNodeIndex.LowerRight(), out var lowerRightNode))
-            newNode.AddNeighboringNode(NeighboringNodeSide.LowerRight, lowerRightNode);
+        foreach (var side in System.Enum.GetValues(typeof(Side)).Cast<Side>())
+            TryAddNeghboringNode(side);
 
         return newNode;
     }

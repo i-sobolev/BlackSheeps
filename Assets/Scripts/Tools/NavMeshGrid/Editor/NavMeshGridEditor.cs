@@ -9,14 +9,43 @@ public partial class NavMeshGridEditor : Editor
     private Vector2 _nodesHorizontalOffset = Vector2.right;
     private Vector2 _nodesVerticalOffset = Vector2.up;
 
+    private Vector3 _lastTargetPosition;
+
+    private bool _changingOffsetsAllowed;
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        _changingOffsetsAllowed = EditorGUILayout.BeginToggleGroup("Nodes offsets handles", _changingOffsetsAllowed);
+        EditorGUILayout.EndToggleGroup();
+    }
+
     private void OnSceneGUI()
     {
-        Target.RootNode.SetPosition(Target.transform.position);
+        MoveRootNodeToTargetTransforPositins();
 
         DrawNodesConnections();
-
         DrawOffsetsHandles();
+        DrawNodesIndexes();
+        DrawNewNodesButtonsForAll();
+    }
 
+    private void MoveRootNodeToTargetTransforPositins()
+    {
+        var currentTargetPosition = Target.transform.position;
+
+        if (_lastTargetPosition != currentTargetPosition)
+        {
+            _lastTargetPosition = currentTargetPosition;
+            Target.RootNode.SetPosition(_lastTargetPosition);
+
+            RefreshNodesPositions();
+        }
+    }
+
+    private void DrawNodesIndexes()
+    {
         foreach (var node in Target.Nodes)
         {
             Handles.BeginGUI();
@@ -26,44 +55,11 @@ public partial class NavMeshGridEditor : Editor
                 text: $"{node.Index.Row} {node.Index.Column}");
 
             Handles.EndGUI();
-
-
-            foreach (var side in node.AllEmptyNeighboringNodesSides)
-            {
-                if (IsSideAreDiagonal(side))
-                    continue;
-
-                Handles.BeginGUI();
-
-                var buttonSize = new Vector2(50f, 20f);
-
-                var addNewNodeButtonClicked = GUI.Button(
-                    position: new Rect(HandleUtility.WorldToGUIPoint(node.Position + GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize),
-                    text: $"+{side}");
-
-                if (addNewNodeButtonClicked)
-                {
-                    var newNodeIndex = Index.NewIndexBySide(side, node.Index);
-
-                    Target.AddNewNode(newNodeIndex);
-
-                    EditorUtility.SetDirty(Target);
-
-                    Debug.Log($"Node added to {side}");
-
-                    RefreshNodesPositions();
-                    return;
-                }
-
-                Handles.EndGUI();
-
-                SceneView.RepaintAll();
-            }
         }
     }
 
-
     private readonly Color _nodesConnectionsColor = new Color(1, 1, 1, 0.1f);
+
     private void DrawNodesConnections()
     {
         Handles.color = _nodesConnectionsColor;
@@ -77,13 +73,61 @@ public partial class NavMeshGridEditor : Editor
         }
     }
 
+    #region GridEdititg
+    private void DrawNewNodesButtonsForAll()
+    {
+        foreach (var node in Target.Nodes)
+            DrawNewNodesButtons(node);
+    }
+
+    private void DrawNewNodesButtons(NavMeshGridNode node)
+    {
+        foreach (var side in node.AllEmptyNeighboringNodesSides)
+        {
+            if (side.IsDiagonal())
+                continue;
+
+            Handles.BeginGUI();
+
+            var buttonSize = new Vector2(50f, 20f);
+
+            var addNewNodeButtonClicked = GUI.Button(
+                position: new Rect(HandleUtility.WorldToGUIPoint(node.Position + GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize),
+                text: $"+{side}");
+
+            if (addNewNodeButtonClicked)
+            {
+                Target.AddNewNode(node.Index.IndexBySide(side));
+
+                EditorUtility.SetDirty(Target);
+
+                Debug.Log($"Node added to {side}");
+
+                RefreshNodesPositions();
+                return;
+            }
+
+            Handles.EndGUI();
+
+            SceneView.RepaintAll();
+        }
+    }
+    #endregion
+
     #region Offsets
     private void DrawOffsetsHandles()
     {
+        if (_changingOffsetsAllowed)
+            return;
+
         EditorGUI.BeginChangeCheck();
 
         var nodesHorizontalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + _nodesHorizontalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
         var nodesVerticalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + _nodesVerticalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
+
+        Handles.BeginGUI();
+
+        Handles.EndGUI();
 
         if (EditorGUI.EndChangeCheck())
         {
@@ -103,7 +147,7 @@ public partial class NavMeshGridEditor : Editor
 
     private void RefreshNodesPositions()
     {
-        void TryGetNodeAndSetPositionBySide(NavMeshGridNode node, NeighboringNodeSide neededNodeSide)
+        void TryGetNodeAndSetPositionBySide(NavMeshGridNode node, Side neededNodeSide)
         {
             if (node.TryGetNeighboringNodeBySide(neededNodeSide, out var neededNode))
                 neededNode.SetPosition(node.Position + GetOffsetBySide(neededNodeSide));
@@ -111,34 +155,25 @@ public partial class NavMeshGridEditor : Editor
 
         foreach (var node in Target.Nodes)
         {
-            TryGetNodeAndSetPositionBySide(node, NeighboringNodeSide.Left);
-            TryGetNodeAndSetPositionBySide(node, NeighboringNodeSide.Right);
-            TryGetNodeAndSetPositionBySide(node, NeighboringNodeSide.Upper);
-            TryGetNodeAndSetPositionBySide(node, NeighboringNodeSide.Lower);
+            TryGetNodeAndSetPositionBySide(node, Side.Left);
+            TryGetNodeAndSetPositionBySide(node, Side.Right);
+            TryGetNodeAndSetPositionBySide(node, Side.Upper);
+            TryGetNodeAndSetPositionBySide(node, Side.Lower);
         }
     }
     #endregion
 
     #region HelpFunctions
-    private Vector2 GetOffsetBySide(NeighboringNodeSide neighboringNodeSide)
+    private Vector2 GetOffsetBySide(Side neighboringNodeSide)
     {
         return neighboringNodeSide switch
         {
-            NeighboringNodeSide.Left => -_nodesHorizontalOffset,
-            NeighboringNodeSide.Right => _nodesHorizontalOffset,
-            NeighboringNodeSide.Lower => -_nodesVerticalOffset,
-            NeighboringNodeSide.Upper => _nodesVerticalOffset,
+            Side.Left => -_nodesHorizontalOffset,
+            Side.Right => _nodesHorizontalOffset,
+            Side.Lower => -_nodesVerticalOffset,
+            Side.Upper => _nodesVerticalOffset,
             _ => Vector2.zero,
         };
-    }
-    private bool IsSideAreDiagonal(NeighboringNodeSide neighboringNodeSide)
-    {
-        var isUpperLeft = neighboringNodeSide == NeighboringNodeSide.UpperLeft;
-        var isUpperRight = neighboringNodeSide == NeighboringNodeSide.UpperRight;
-        var isLowerRight = neighboringNodeSide == NeighboringNodeSide.LowerRight;
-        var isLowerLeft = neighboringNodeSide == NeighboringNodeSide.LowerLeft;
-
-        return isUpperLeft || isUpperRight || isLowerRight || isLowerLeft;
     }
     #endregion
 }

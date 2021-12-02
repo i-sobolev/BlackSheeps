@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NavMeshGridNode : ScriptableObject
@@ -33,15 +34,15 @@ public class NavMeshGridNode : ScriptableObject
         }
     }
 
-    public IEnumerable<NeighboringNodeSide> AllEmptyNeighboringNodesSides
+    public IEnumerable<Side> AllEmptyNeighboringNodesSides
     {
         get
         {
-            var result = new List<NeighboringNodeSide>();
+            var result = new List<Side>();
 
-            foreach (var side in Enum.GetValues(typeof(NeighboringNodeSide)))
-                if (!TryGetNeighboringNodeBySide((NeighboringNodeSide)side, out var _))
-                    result.Add((NeighboringNodeSide)side);
+            foreach (var side in Enum.GetValues(typeof(Side)).Cast<Side>())
+                if (!TryGetNeighboringNodeBySide(side, out var _))
+                    result.Add(side);
 
             return result;
         }
@@ -49,7 +50,7 @@ public class NavMeshGridNode : ScriptableObject
 
     public Vector2 Position => _position;
 
-    public NavMeshGridNode AddNeighboringNode(NeighboringNodeSide neighboringNodeSide, NavMeshGridNode newNode)
+    public NavMeshGridNode AddNeighboringNode(Side neighboringNodeSide, NavMeshGridNode newNode)
     {
         if (_neighboringNodes[(int)neighboringNodeSide] != null)
             return null;
@@ -61,7 +62,7 @@ public class NavMeshGridNode : ScriptableObject
         return newNode;
     }
 
-    public bool TryGetNeighboringNodeBySide(NeighboringNodeSide side, out NavMeshGridNode resultNode)
+    public bool TryGetNeighboringNodeBySide(Side side, out NavMeshGridNode resultNode)
     {
         resultNode = _neighboringNodes[(int)side];
         return resultNode != null;
@@ -69,9 +70,9 @@ public class NavMeshGridNode : ScriptableObject
 
     public void SetPosition(Vector2 position) => _position = position;
 
-    private NeighboringNodeSide GetOppositeNodeSide(NeighboringNodeSide currentSide)
+    private Side GetOppositeNodeSide(Side currentSide)
     {
         var currentSideId = (int)currentSide;
-        return (NeighboringNodeSide)(currentSideId % 2 == 0 ? currentSideId + 1 : currentSideId - 1);
+        return (Side)(currentSideId % 2 == 0 ? currentSideId + 1 : currentSideId - 1);
     }
 }
