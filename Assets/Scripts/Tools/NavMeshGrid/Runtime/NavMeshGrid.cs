@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class NavMeshGrid : MonoBehaviour
 {
-    [HideInInspector][SerializeField] private List<NavMeshGridNode> _nodes = new List<NavMeshGridNode>();
+    [SerializeField] private List<NavMeshGridNode> _nodes;
     public IEnumerable<NavMeshGridNode> Nodes => _nodes;
+
+    [SerializeField] private Vector2 _nodesHorizontalOffset;
+    public Vector2 NodesHorizontalOffset => _nodesHorizontalOffset;
+
+    [SerializeField] private Vector2 _nodesVerticalOffset;
+    public Vector2 NodesVerticalOffset => _nodesVerticalOffset;
 
     public NavMeshGridNode RootNode => _nodes[0];
 
@@ -38,4 +44,40 @@ public class NavMeshGrid : MonoBehaviour
 
         return newNode;
     }
+
+    public void SetOffsets(Vector2 horizontal, Vector2 vertical)
+    {
+        _nodesHorizontalOffset = horizontal;
+        _nodesVerticalOffset = vertical;
+    }
+
+    public void RefreshNodesPositions()
+    {
+        void TryGetNodeAndSetPositionBySide(NavMeshGridNode node, Side neededNodeSide)
+        {
+            if (node.TryGetNeighboringNodeBySide(neededNodeSide, out var neededNode))
+                neededNode.SetPosition(node.Position + GetOffsetBySide(neededNodeSide));
+        }
+
+        foreach (var node in _nodes)
+        {
+            TryGetNodeAndSetPositionBySide(node, Side.Left);
+            TryGetNodeAndSetPositionBySide(node, Side.Right);
+            TryGetNodeAndSetPositionBySide(node, Side.Upper);
+            TryGetNodeAndSetPositionBySide(node, Side.Lower);
+        }
+    }
+
+    public Vector2 GetOffsetBySide(Side neighboringNodeSide)
+    {
+        return neighboringNodeSide switch
+        {
+            Side.Left => -_nodesHorizontalOffset,
+            Side.Right => _nodesHorizontalOffset,
+            Side.Lower => -_nodesVerticalOffset,
+            Side.Upper => _nodesVerticalOffset,
+            _ => Vector2.zero,
+        };
+    }
+
 }

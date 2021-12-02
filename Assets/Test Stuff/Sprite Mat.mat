@@ -83,8 +83,8 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0.46941176, g: 0.67058825, b: 0.5378118, a: 1}
-    - _ShadowOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowScaler: {r: -1, g: -1, b: 0, a: 0}
-    - _Shear: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowColor: {r: 0.48001954, g: 0.6320754, b: 0.53245264, a: 1}
+    - _ShadowOffset: {r: 0, g: 0.06, b: 0, a: 0}
+    - _ShadowScaler: {r: -1, g: -0.33, b: 0, a: 0}
+    - _Shear: {r: -0.6, g: 0.24, b: 0, a: 0}
   m_BuildTextureStacks: []

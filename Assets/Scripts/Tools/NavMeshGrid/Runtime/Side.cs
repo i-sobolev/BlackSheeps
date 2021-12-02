@@ -22,4 +22,10 @@ public static class SideExtentions
         return isUpperLeft || isUpperRight || isLowerRight || isLowerLeft;
     }
 
+    public static Side OppositeSide(this Side currentSide)
+    {
+        var currentSideId = (int)currentSide;
+        return (Side)(currentSideId % 2 == 0 ? currentSideId + 1 : currentSideId - 1);
+    }
+
 }

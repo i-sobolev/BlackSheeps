@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class NavMeshGridNode : ScriptableObject
 {
-    [HideInInspector] [SerializeField] private Index _index;
+    [SerializeField] private Index _index;
 
-    [HideInInspector] [SerializeField] private NavMeshGridNode[] _neighboringNodes;
-    [HideInInspector] [SerializeField] private Vector2 _position;
+    [SerializeField] private NavMeshGridNode[] _neighboringNodes;
+    [SerializeField] private Vector2 _position;
 
     public NavMeshGridNode Initialize(Index index)
     {
-        _neighboringNodes = new NavMeshGridNode[8];
+        _neighboringNodes ??= new NavMeshGridNode[8];
         _index = index;
 
         return this;
@@ -57,7 +57,7 @@ public class NavMeshGridNode : ScriptableObject
 
         _neighboringNodes[(int)neighboringNodeSide] = newNode;
 
-        newNode.AddNeighboringNode(GetOppositeNodeSide(neighboringNodeSide), this);
+        newNode.AddNeighboringNode(neighboringNodeSide.OppositeSide(), this);
         
         return newNode;
     }
@@ -69,10 +69,4 @@ public class NavMeshGridNode : ScriptableObject
     }
 
     public void SetPosition(Vector2 position) => _position = position;
-
-    private Side GetOppositeNodeSide(Side currentSide)
-    {
-        var currentSideId = (int)currentSide;
-        return (Side)(currentSideId % 2 == 0 ? currentSideId + 1 : currentSideId - 1);
-    }
 }
