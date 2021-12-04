@@ -50,6 +50,18 @@ public class NavMeshGridNode : ScriptableObject
 
     public Vector2 Position => _position;
 
+    public void RemoveNeighboringNode(NavMeshGridNode nodeToRemove)
+    {
+        for (int i = 0; i < _neighboringNodes.Length; i++)
+        {
+            if (_neighboringNodes[i] == nodeToRemove)
+            {
+                _neighboringNodes[i] = null;
+                break;
+            }
+        }
+    }
+
     public NavMeshGridNode AddNeighboringNode(Side neighboringNodeSide, NavMeshGridNode newNode)
     {
         if (_neighboringNodes[(int)neighboringNodeSide] != null)

@@ -8,7 +8,9 @@ public class NavMeshGridEditor : Editor
 
     private Vector3 _lastTargetPosition;
 
-    protected NavMeshGrid Target => target as NavMeshGrid;
+    private NavMeshGridNode _selectedNode = null;
+
+    protected NavMeshGrid Grid => target as NavMeshGrid;
 
     public override void OnInspectorGUI()
     {
@@ -25,25 +27,66 @@ public class NavMeshGridEditor : Editor
         DrawNodesConnections();
         DrawOffsetsHandles();
         DrawNodesIndexes();
-        DrawNewNodesButtonsForAll();
+
+        foreach (var node in Grid.Nodes)
+        {
+            var nodeButtonClicked = Handles.Button(node.Position, Quaternion.identity, 0.2f, 0.2f, Handles.RectangleHandleCap);
+
+            if (nodeButtonClicked)
+                _selectedNode = node;
+        };
+
+
+        if (_selectedNode)
+        {
+            DrawNewNodesButtons(_selectedNode);
+
+            Handles.BeginGUI();
+
+            var buttonSize = new Vector2(60f, 20f);
+
+            var removeNodeButtonClicked = GUI.Button(
+            position: new Rect(HandleUtility.WorldToGUIPoint(_selectedNode.Position + Vector2.up * 0.3f) - buttonSize * 0.5f, buttonSize),
+            text: $"-remove");
+
+            if (removeNodeButtonClicked)
+            {
+                Grid.RemoveNode(_selectedNode);
+
+                Debug.Log($"Node {_selectedNode.Index.Column} {_selectedNode.Index.Row} removed");
+
+                Grid.RefreshNodesPositions();
+
+                _selectedNode = null;
+            }
+
+            Handles.EndGUI();
+
+            SceneView.RepaintAll();
+        }
+
+        else
+        {
+            DrawNewNodesButtonsForAll();
+        }
     }
 
     private void MoveRootNodeToTargetTransforPositins()
     {
-        var currentTargetPosition = Target.transform.position;
+        var currentTargetPosition = Grid.transform.position;
 
         if (_lastTargetPosition != currentTargetPosition)
         {
             _lastTargetPosition = currentTargetPosition;
-            Target.RootNode.SetPosition(_lastTargetPosition);
+            Grid.RootNode.SetPosition(_lastTargetPosition);
 
-            Target.RefreshNodesPositions();
+            Grid.RefreshNodesPositions();
         }
     }
 
     private void DrawNodesIndexes()
     {
-        foreach (var node in Target.Nodes)
+        foreach (var node in Grid.Nodes)
         {
             Handles.BeginGUI();
 
@@ -61,7 +104,7 @@ public class NavMeshGridEditor : Editor
     {
         Handles.color = _nodesConnectionsColor;
 
-        foreach (var node in Target.Nodes)
+        foreach (var node in Grid.Nodes)
         {
             foreach (var neighboringNode in node.AllNeighboringNodes)
             {
@@ -73,7 +116,7 @@ public class NavMeshGridEditor : Editor
     #region GridEdititg
     private void DrawNewNodesButtonsForAll()
     {
-        foreach (var node in Target.Nodes)
+        foreach (var node in Grid.Nodes)
         {
             if (DrawNewNodesButtons(node))
                 break;
@@ -92,16 +135,16 @@ public class NavMeshGridEditor : Editor
             var buttonSize = new Vector2(50f, 20f);
 
             var addNewNodeButtonClicked = GUI.Button(
-                position: new Rect(HandleUtility.WorldToGUIPoint(node.Position + Target.GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize),
+                position: new Rect(HandleUtility.WorldToGUIPoint(node.Position + Grid.GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize),
                 text: $"+{side}");
 
             if (addNewNodeButtonClicked)
             {
-                Target.AddNewNode(node.Index.IndexBySide(side));
+                Grid.AddNewNode(node.Index.IndexBySide(side));
                 
                 Debug.Log($"Node added to {side}");
 
-                Target.RefreshNodesPositions();
+                Grid.RefreshNodesPositions();
                 return true;
             }
 
@@ -122,8 +165,8 @@ public class NavMeshGridEditor : Editor
 
         EditorGUI.BeginChangeCheck();
 
-        var nodesHorizontalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Target.NodesHorizontalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
-        var nodesVerticalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Target.NodesVerticalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
+        var nodesHorizontalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Grid.NodesHorizontalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
+        var nodesVerticalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Grid.NodesVerticalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
 
         Handles.BeginGUI();
 
@@ -131,17 +174,17 @@ public class NavMeshGridEditor : Editor
 
         if (EditorGUI.EndChangeCheck())
         {
-            Target.SetOffsets(nodesHorizontalOffsetTemp, nodesVerticalOffsetTemp);
+            Grid.SetOffsets(nodesHorizontalOffsetTemp, nodesVerticalOffsetTemp);
 
             Debug.Log("Offsets was changed");
-            Target.RefreshNodesPositions();
+            Grid.RefreshNodesPositions();
         }
 
         Handles.color = Color.red;
-        Handles.DrawLine(Target.RootNode.Position, Target.RootNode.Position + Target.NodesHorizontalOffset);
+        Handles.DrawLine(Grid.RootNode.Position, Grid.RootNode.Position + Grid.NodesHorizontalOffset);
 
         Handles.color = Color.green;
-        Handles.DrawLine(Target.RootNode.Position, Target.RootNode.Position + Target.NodesVerticalOffset);
+        Handles.DrawLine(Grid.RootNode.Position, Grid.RootNode.Position + Grid.NodesVerticalOffset);
     }
 
     #endregion

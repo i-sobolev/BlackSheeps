@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -43,6 +44,14 @@ public class NavMeshGrid : MonoBehaviour
             TryAddNeghboringNode(side);
 
         return newNode;
+    }
+
+    public void RemoveNode(NavMeshGridNode selectedNode)
+    {
+        foreach (var node in selectedNode.AllNeighboringNodes)
+            node.RemoveNeighboringNode(selectedNode);
+
+        _nodes.Remove(selectedNode);
     }
 
     public void SetOffsets(Vector2 horizontal, Vector2 vertical)
