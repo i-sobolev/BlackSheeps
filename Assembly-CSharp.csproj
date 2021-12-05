@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,41 +53,41 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Scripts\Unit\Spawner\UnitSpawnerEditor.cs" />
+    <Compile Include="Assets\Scripts\Old\Unit\Spawner\UnitSpawnerEditor.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\Singleton.cs" />
-    <Compile Include="Assets\Scripts\CameraMover.cs" />
     <Compile Include="Assets\Scripts\Tools\Extentions.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\IsoSpriteSortingEditor.cs" />
-    <Compile Include="Assets\Scripts\Unit\Spawner\UnitSpawner.cs" />
-    <Compile Include="Assets\Scripts\InteractionEntity\InteractionEntityEditor.cs" />
-    <Compile Include="Assets\Scripts\InteractionEntity\InteractionEntity.cs" />
-    <Compile Include="Assets\Scripts\Rocket\Rocket.cs" />
+    <Compile Include="Assets\Scripts\Old\Unit\Spawner\UnitSpawner.cs" />
+    <Compile Include="Assets\Scripts\Old\InteractionEntity\InteractionEntityEditor.cs" />
+    <Compile Include="Assets\Scripts\Old\InteractionEntity\InteractionEntity.cs" />
+    <Compile Include="Assets\Scripts\Old\Rocket\Rocket.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\Bounds2D.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAnimatorController.cs" />
-    <Compile Include="Assets\Scripts\SoundList.cs" />
-    <Compile Include="Assets\Scripts\Rocket\RocketPart.cs" />
-    <Compile Include="Assets\Scripts\CameraScaler.cs" />
+    <Compile Include="Assets\Scripts\Old\Unit\UnitAnimatorController.cs" />
+    <Compile Include="Assets\Scripts\Old\Rocket\RocketPart.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\TopologicalSort.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\IsoSpriteSortingManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIHints.cs" />
+    <Compile Include="Assets\Scripts\Old\UI\UIHints.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\Scripts\Unit\Unit.cs" />
-    <Compile Include="Assets\Scripts\InteractionEntity\SparePart.cs" />
+    <Compile Include="Assets\Scripts\Old\Unit\Unit.cs" />
+    <Compile Include="Assets\Scripts\Old\InteractionEntity\SparePart.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\IsoSpriteSorting.cs" />
-    <Compile Include="Assets\Scripts\Horde\Horde.cs" />
+    <Compile Include="Assets\Scripts\Old\Horde\Horde.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\Scripts\UI\BlackScreen.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitTypes.cs" />
-    <Compile Include="Assets\Scripts\Horde\EnemyHorde.cs" />
-    <Compile Include="Assets\Scripts\Horde\PlayerHorde.cs" />
+    <Compile Include="Assets\Scripts\Old\UI\BlackScreen.cs" />
+    <Compile Include="Assets\Scripts\Old\Unit\UnitTypes.cs" />
+    <Compile Include="Assets\Scripts\Old\Horde\EnemyHorde.cs" />
+    <Compile Include="Assets\Scripts\Old\Horde\PlayerHorde.cs" />
+    <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Old\CameraMover.cs" />
+    <Compile Include="Assets\Scripts\Old\SoundList.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Old\CameraScaler.cs" />
+    <Compile Include="Assets\Scripts\Unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Addons\DOTween\DOTween.XML" />
@@ -756,10 +756,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NavMeshGrid.csproj">
-      <Project>{3EE41E5A-45C1-434A-66A5-679E53C83D52}</Project>
-      <Name>NavMeshGrid</Name>
-    </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
       <Project>{D00A9B2E-3BAF-3CFF-C546-BB2A57DB7CDC}</Project>
       <Name>NavMeshComponentsEditor</Name>
@@ -767,6 +763,10 @@
     <ProjectReference Include="NavMeshComponents.csproj">
       <Project>{D39746EA-E147-9A42-3F82-5D1A49581990}</Project>
       <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshGrid.csproj">
+      <Project>{3EE41E5A-45C1-434A-66A5-679E53C83D52}</Project>
+      <Name>NavMeshGrid</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
