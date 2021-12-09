@@ -1,128 +1,1299 @@
 Using pre-set license
-Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19043.1348; Version 2009; 64bit' Language: 'ru' Physical Memory: 16337 MB
+Built from '2020.3/staging' branch; Version is '2020.3.23f1 (c5d91304a876) revision 12966163'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 19042.1348; Version 2009; 64bit' Language: 'ru' Physical Memory: 8033 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
- COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
+COMMAND LINE ARGUMENTS:
+D:\Programs\Unity\2020.3.23f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-F:/Desktop/Unity/BlackSheeps/Black Sheeps
+D:/Workshop/Projects/Unity Proj/BlackSheeps
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61643
-Successfully changed project path to: F:/Desktop/Unity/BlackSheeps/Black Sheeps
-F:/Desktop/Unity/BlackSheeps/Black Sheeps
+59065
+Successfully changed project path to: D:/Workshop/Projects/Unity Proj/BlackSheeps
+D:/Workshop/Projects/Unity Proj/BlackSheeps
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 40.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 224.96 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2020.3.11f1 (99c7afb366b3)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path F:/Desktop/Unity/BlackSheeps/Black Sheeps/Assets
+Initialize engine version: 2020.3.23f1 (c5d91304a876)
+[Subsystems] Discovering subsystems at path D:/Programs/Unity/2020.3.23f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Workshop/Projects/Unity Proj/BlackSheeps/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c91)
     Vendor:   
-    VRAM:     8088 MB
-    Driver:   30.0.14.9676
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+    VRAM:     2996 MB
+    Driver:   27.21.14.6280
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56640
+Mono path[0] = 'D:/Programs/Unity/2020.3.23f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Programs/Unity/2020.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Programs/Unity/2020.3.23f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56612
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001847 seconds.
+Register platform support module: D:/Programs/Unity/2020.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.030837 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 44.06 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 59.40 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.425 seconds
+- Completed reload, in  0.833 seconds
+Domain Reload Profiling:
+	ReloadAssembly (833ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (631ms)
+			LoadAssemblies (89ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (191ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (217ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (59ms)
+				BeforeProcessingInitializeOnLoad (18ms)
+				ProcessInitializeOnLoadAttributes (82ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003957 seconds.
+Registered in 0.126335 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 39.57 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 59.32 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.023 seconds
+- Completed reload, in  2.587 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2654ms)
+		BeginReloadAssembly (188ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (26ms)
+		EndReloadAssembly (2335ms)
+			LoadAssemblies (634ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (496ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (1004ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (59ms)
+				BeforeProcessingInitializeOnLoad (88ms)
+				ProcessInitializeOnLoadAttributes (475ms)
+				ProcessInitializeOnLoadMethodAttributes (372ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.23 seconds
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2735 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 120.2 MB.
-System memory in use after: 120.4 MB.
+Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 124.0 MB.
+System memory in use after: 124.2 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 3174.
-Total: 2.066000 ms (FindLiveObjects: 0.290200 ms CreateObjectMapping: 0.171000 ms MarkObjects: 1.543900 ms  DeleteObjects: 0.059900 ms)
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 3288.
+Total: 3.588500 ms (FindLiveObjects: 0.529400 ms CreateObjectMapping: 0.190600 ms MarkObjects: 2.795700 ms  DeleteObjects: 0.071600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
-  requireTextureImportCompression: false -> true
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/mouseIco1.png
-  artifactKey: Guid(55d90558a9ba8054ca6b79ced8c9487f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/mouseIco1.png using Guid(55d90558a9ba8054ca6b79ced8c9487f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc15c219e47c849e8be9726d9cc8b29a') in 0.074278 seconds
-  Import took 0.077488 seconds .
+  path: Assets/Sprites/Nature/Grass Small
+  artifactKey: Guid(b3489321a6003e8498cbd90c6811769c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Nature/Grass Small using Guid(b3489321a6003e8498cbd90c6811769c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27537c8551f1ab932e345653f537e610') in 0.185907 seconds 
+  Import took 0.227881 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/DefaultSpritePreset.preset
-  artifactKey: Guid(487978ef911e6fb49b69eafc8114f410) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DefaultSpritePreset.preset using Guid(487978ef911e6fb49b69eafc8114f410) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6761ba3fda7afdc1c8bf16f5661ed10d') in 0.005555 seconds
-  Import took 0.008557 seconds .
+  Time since last request: 85.686650 seconds.
+  path: Assets/Prefabs/Nature/Grass
+  artifactKey: Guid(2057c63bc1d9e7349a83812e47c106aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass using Guid(2057c63bc1d9e7349a83812e47c106aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff688f5c82c422d9bfb120e1ecb85770') in 0.012127 seconds 
+  Import took 0.033073 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000172 seconds.
-  path: Assets/mouseIco2.png
-  artifactKey: Guid(2fc0df3828d7883498f8c7984cb33cf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/mouseIco2.png using Guid(2fc0df3828d7883498f8c7984cb33cf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd455f34c39d58dff6dda041ed0788040') in 0.006155 seconds
-  Import took 0.009687 seconds .
+  Time since last request: 20.348359 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53bc5c43cc284c7dd622509f67a59fa1') in 0.360764 seconds 
+  Import took 0.387426 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.820747 seconds.
-  path: Assets/Addons
-  artifactKey: Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Addons using Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3394c8d34f11f6f93e5fea0184f5a35d') in 0.001689 seconds
-  Import took 0.006778 seconds .
+  Time since last request: 209.359061 seconds.
+  path: Assets/Prefabs/Farm
+  artifactKey: Guid(44e5517372319e945bd7a0fdc5caf59c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Farm using Guid(44e5517372319e945bd7a0fdc5caf59c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0155f681eaabe44b592680a37f8ce2e0') in 0.097846 seconds 
+  Import took 0.164131 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.013491 seconds.
-  path: Assets/Addons
-  artifactKey: Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Addons using Guid(bf067614d7c08714cb112c53debd9554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3394c8d34f11f6f93e5fea0184f5a35d') in 0.001293 seconds
-  Import took 0.005341 seconds .
+  Time since last request: 0.750699 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab080913eae399f81e5933d328fb714d') in 0.012629 seconds 
+  Import took 0.260483 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.642837 seconds.
-  path: Assets/Scripts
-  artifactKey: Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts using Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46314f786f07540a323c2f14402f3b9c') in 0.001381 seconds
-  Import took 0.005501 seconds .
+  Time since last request: 354.874074 seconds.
+  path: Assets/Prefabs/Farm/Barn.prefab
+  artifactKey: Guid(899ba21c08104b4459f34d8b5dd78567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Farm/Barn.prefab using Guid(899ba21c08104b4459f34d8b5dd78567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f0868229865029377df955df62233e4') in 0.390334 seconds 
+  Import took 0.395974 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000717 seconds.
-  path: Assets/Scripts
-  artifactKey: Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts using Guid(7fc7e5eb746c6784d8a48762553cc5fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46314f786f07540a323c2f14402f3b9c') in 0.001308 seconds
-  Import took 0.005154 seconds .
+  Time since last request: 0.000304 seconds.
+  path: Assets/Prefabs/Farm/FarmFence2.prefab
+  artifactKey: Guid(b00c5d49d495cd24dbc9c367ead32efd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Farm/FarmFence2.prefab using Guid(b00c5d49d495cd24dbc9c367ead32efd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '593c40bb3c6899cc2346a92a7a70c20d') in 0.027595 seconds 
+  Import took 0.033675 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/Prefabs/Farm/Gate1.prefab
+  artifactKey: Guid(9847e85f997d32d42b81862377cfb423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Farm/Gate1.prefab using Guid(9847e85f997d32d42b81862377cfb423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e17f219bfafd6331567ec3defa1d700') in 0.063590 seconds 
+  Import took 0.069001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Prefabs/Farm/Gate2.prefab
+  artifactKey: Guid(1c8ef65e3b4ffe24ab665fb09caf45ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Farm/Gate2.prefab using Guid(1c8ef65e3b4ffe24ab665fb09caf45ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1904672bd15411d74f66e3bd781bfbf3') in 0.088027 seconds 
+  Import took 0.102901 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/Prefabs/Farm/FarmFence1.prefab
+  artifactKey: Guid(60eed4a88c9051444a227776b02a4dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Farm/FarmFence1.prefab using Guid(60eed4a88c9051444a227776b02a4dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2882bc4b7b890567599a5d91a3e9c56a') in 0.020319 seconds 
+  Import took 0.051477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.113920 seconds.
+  path: Assets/Prefabs/Nature/Grass/Root.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Root.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b253ecc97164ec64722c917263434c5b') in 0.164939 seconds 
+  Import took 0.183193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.351473 seconds.
+  path: Assets/Prefabs/Nature/Grass/Root.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Root.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bfea2d5c76ff2f81a5288e60068f5a1') in 0.024839 seconds 
+  Import took 0.030459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.598959 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28d948e6a6e422d583cbe4280e635e97') in 0.018407 seconds 
+  Import took 0.117470 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.757594 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce495234d35d0fe0c7a15494afb4ccf3') in 0.016069 seconds 
+  Import took 0.038665 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 139.755920 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '959d8d40281203b1a6aa1e072fe0410e') in 0.023235 seconds 
+  Import took 0.148554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.480488 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '921ff1acf72bc88bd0fe19946e414e9d') in 0.022415 seconds 
+  Import took 0.052799 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.151850 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '713a6dbefc635f0893edeada329e5e9c') in 0.022484 seconds 
+  Import took 0.029018 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.149516 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1aaad57e74d7b5d2f4b98fd21241eec') in 0.021067 seconds 
+  Import took 0.026032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.433083 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6bd599a28df676450ad7b75bb8eab32') in 0.016047 seconds 
+  Import took 0.023413 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.121744 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47fb86c88bb895af883fd0106b4aafa2') in 0.028896 seconds 
+  Import took 0.036411 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.792245 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b787eb126e8fc8de84397924e36be389') in 0.027799 seconds 
+  Import took 0.053351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.175823 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '952cb965a453f470b9f5c54cccf8ca28') in 0.018538 seconds 
+  Import took 0.027972 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.978658 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bc6a1d0dfc0f820a95d08169a74e26f') in 0.016727 seconds 
+  Import took 0.022733 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.214002 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '596de9ee21131232dbff064fd9ad5d6e') in 0.017038 seconds 
+  Import took 0.022854 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.682311 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'baaf601fb827ebb843f5899dfddb7eed') in 0.021330 seconds 
+  Import took 0.028600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.608221 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14155288825ce7fafe4d34fded9b7364') in 0.036411 seconds 
+  Import took 0.045609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.776472 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '220c56ea2f6c1a641f1f9f12e27e3963') in 0.024653 seconds 
+  Import took 0.311734 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.654126 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6d4a2c440efaa868d073c1d44ddfb48') in 0.175356 seconds 
+  Import took 0.183200 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.018746 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ab0e4f1de548984e8d9ef2162b607b6') in 0.022260 seconds 
+  Import took 0.046517 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.667214 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b9df7ecd5f22950724d2b7d499847e2') in 0.015786 seconds 
+  Import took 0.034708 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.120046 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7f9457363df399f38aec9dff2ef947b') in 0.023956 seconds 
+  Import took 0.032706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.903668 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ab82a9d72fd2732a70d49b85f35bdcc') in 0.019838 seconds 
+  Import took 0.026361 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.851773 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43e892b0373f3a4f20db3d84d2033e77') in 0.015254 seconds 
+  Import took 0.020014 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.855156 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de6e2ac3a82c8335f86dc394feb2cab2') in 0.020774 seconds 
+  Import took 0.026699 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.877911 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '442442f0e001cab3cc1f1562f6659012') in 0.019561 seconds 
+  Import took 0.025330 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.981626 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1d3a9f7ca65a13c52789bc3ad984d4a') in 0.020729 seconds 
+  Import took 0.094397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.176330 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ff3ad4bd4309dc0e72c5a50bd4c7c45') in 0.015220 seconds 
+  Import took 0.023100 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.039834 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e89c0e1c18cfb1f57fe902dda700708b') in 0.020184 seconds 
+  Import took 0.027356 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.282374 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8657b1d0731062e8b0636f1bf9cd39b0') in 0.017739 seconds 
+  Import took 0.035077 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.766122 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da1580f9ef2ab9ae58aa96c4a231e2a1') in 0.025799 seconds 
+  Import took 0.034736 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.577770 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebfe4d749e914f03e90840acaac84df2') in 0.020098 seconds 
+  Import took 0.042645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.170418 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54ac4ceb7fc386099844bffe05be8217') in 0.016390 seconds 
+  Import took 0.025187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.982641 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63e4881838feb653c1bc6648a4f28288') in 0.015898 seconds 
+  Import took 0.021414 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.401752 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c42efc33bfacfc6401e7fa4a2a1383d7') in 0.019158 seconds 
+  Import took 0.026296 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.245344 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a69506f2e7ddeab3c8a2558aebffea0') in 0.018627 seconds 
+  Import took 0.027968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.932932 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42dc969323543b01f4ecf17b3dbc9c8f') in 0.026049 seconds 
+  Import took 0.032967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.488661 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c7f41b4a27ec70076887fa8923af80d') in 0.021573 seconds 
+  Import took 0.026945 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.303191 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a3b04fdb434f79b99833cbec8ccb435') in 0.029868 seconds 
+  Import took 0.035219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.788591 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8e5d29d6f2f471edf53c7112f90ebbd') in 0.023699 seconds 
+  Import took 0.114650 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.015148 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55dc73e1815c96afc5e428af8d3bd1cb') in 0.019686 seconds 
+  Import took 0.025179 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.341430 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2dedca9fafe0341c947eef9a809d22f') in 0.027554 seconds 
+  Import took 0.032847 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.334217 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80e75660f6dca31481f0216854c3078d') in 0.020509 seconds 
+  Import took 0.026834 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.079138 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02554c6f5b065048d7b48cdc4a3a8fb2') in 0.017859 seconds 
+  Import took 0.026226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.698508 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af0c66bc1fd12ac8c74155b28915d9ec') in 0.081022 seconds 
+  Import took 0.096734 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.563165 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b938b2f78519a487e0d26b91dbd27b55') in 0.017086 seconds 
+  Import took 0.038560 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.374327 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a69d7b4902f9e8a256505c65fbf20321') in 0.021826 seconds 
+  Import took 0.088526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.126081 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '439f30dc7c249bf3dcdba1fa5afa61e1') in 0.018161 seconds 
+  Import took 0.023775 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.633381 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2acea659c5dd5fff09cb437b7bb88422') in 0.022679 seconds 
+  Import took 0.027601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.451607 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '709e768d206a20a3075df138bf95fe7f') in 0.013607 seconds 
+  Import took 0.018818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.862566 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b10128ec693f8925c15402365d65a188') in 0.026402 seconds 
+  Import took 0.032018 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.967601 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76f0c752eca7ecb71e0a84d8cb8260a7') in 0.020146 seconds 
+  Import took 0.261672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.405567 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6938e26dbeedf13adb06b0a10ccc4374') in 0.018252 seconds 
+  Import took 0.031849 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.592291 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c816de8e750ba1c503a2a2efc336205b') in 0.015849 seconds 
+  Import took 0.025302 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.226617 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0166b43fc2dc4da58bb30f1b1773afc') in 0.023678 seconds 
+  Import took 0.035917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.174122 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e052a558087594ad058623341b05031c') in 0.022437 seconds 
+  Import took 0.166153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.872706 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e705d2adb196bf206a59d8ca3530258') in 0.011259 seconds 
+  Import took 0.017103 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.855023 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8859594a191666cb790559bfb8d098b9') in 0.015116 seconds 
+  Import took 0.020078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 377.437776 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 1.prefab
+  artifactKey: Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 1.prefab using Guid(23c2f1c692bff074d9bfb336491a1d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87eb9532e134a9ff1c7f97f9f012267e') in 0.018092 seconds 
+  Import took 0.025370 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005090 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.269 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1270ms)
+		BeginReloadAssembly (148ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (57ms)
+		EndReloadAssembly (1052ms)
+			LoadAssemblies (106ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (389ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (60ms)
+			SetupLoadedEditorAssemblies (377ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (3ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (254ms)
+				ProcessInitializeOnLoadMethodAttributes (12ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2789 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 121.2 MB.
+System memory in use after: 121.4 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 3297.
+Total: 3.747500 ms (FindLiveObjects: 0.614600 ms CreateObjectMapping: 0.407200 ms MarkObjects: 2.704600 ms  DeleteObjects: 0.020200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1039.492951 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fba09f4faa11964532b172d628ef5f9') in 0.254810 seconds 
+  Import took 0.260768 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 61.351930 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48d9e79224a23df43823b55bb834c6a6') in 0.031407 seconds 
+  Import took 0.037431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 419.437322 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6043da206e6b0843496f1027afb560d3') in 0.019434 seconds 
+  Import took 0.025395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.361289 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a6e85fc15bc9e7e06eaca097ff16305') in 0.013262 seconds 
+  Import took 0.019023 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.157546 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1ba9988895b8ebb36ca6bf86103e1ea') in 0.162823 seconds 
+  Import took 0.178637 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.001199 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81c97948c9e8fabda8af82e307b90b55') in 0.020501 seconds 
+  Import took 0.062526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.391667 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a22699ff8212a3eddc0dbcb604214ba9') in 0.021168 seconds 
+  Import took 0.043588 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.345668 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3cc96ea6887748cccd7adc2189f778d') in 0.117719 seconds 
+  Import took 0.122562 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.725042 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bf38596aa764b4193a494e942c57b8d') in 0.020762 seconds 
+  Import took 0.043506 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.671861 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3aa4bdb7fa7b91241edb51d69998cf5') in 0.011233 seconds 
+  Import took 0.030227 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.504150 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ef3a6bc5186c0637c1f941608c436ba') in 0.014946 seconds 
+  Import took 0.214921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.947142 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '331d86bd6acd50b273323669bb9858f8') in 0.072180 seconds 
+  Import took 0.171887 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.754667 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57c48cee6dc3c9eab720be1d2f8faf89') in 0.029349 seconds 
+  Import took 0.034696 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.136570 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95d04a7e06075bb1680fd5e08a2953de') in 0.021918 seconds 
+  Import took 0.026664 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.638397 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe5d6394c9fcc23bb88b8bcee3fa2f97') in 0.014175 seconds 
+  Import took 0.019814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.566081 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daa6b516a886aa13c26f1ed4f45aaef7') in 0.015927 seconds 
+  Import took 0.021019 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.942937 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b9659d9c42eceefd0bfc7c4f50d634c') in 0.020123 seconds 
+  Import took 0.025528 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.986399 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a71f895ce139bff87252fb582565ac2') in 0.016279 seconds 
+  Import took 0.070748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.817041 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '638bb0e0af1328ce8aba1b45596d6a87') in 0.013867 seconds 
+  Import took 0.028724 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.264915 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dbec579bba22555a103162cb4f8723a') in 0.015831 seconds 
+  Import took 0.021885 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.008812 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17751ad8fe8d612c2840b2c158d4101a') in 0.014627 seconds 
+  Import took 0.020436 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.802073 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c72231e3ec8bc3398fbb9d50e5e4be2a') in 0.018130 seconds 
+  Import took 0.038800 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.786922 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b2591c0fd4232a56874436174e7ecd6') in 0.011457 seconds 
+  Import took 0.017212 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.798365 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0ca50b1f4a6a0b16d8ad718e1b60d65') in 0.018208 seconds 
+  Import took 0.158024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.056147 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '539c23ede19509aa5811a987cd55eaba') in 0.014269 seconds 
+  Import took 0.019187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.511650 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4df4966a7da3dbc59ec3d47a0f299521') in 0.020371 seconds 
+  Import took 0.077713 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.810821 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '029d1b2a50551d1d34b673e82703deef') in 0.016965 seconds 
+  Import took 0.022867 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.810617 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec96cf856d5a05d7d657385254b5e4a0') in 0.013101 seconds 
+  Import took 0.020462 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.710400 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50045c3be8b091a363d2dd6e2b17cc9b') in 0.020948 seconds 
+  Import took 0.108098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.051934 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62d9f2b3e84d58d72945fea7c537774b') in 0.022744 seconds 
+  Import took 0.028702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.181239 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8bb32ff952fc0259b9d89f85fe9113f') in 0.013474 seconds 
+  Import took 0.019922 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.372578 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e30099b61079362f59d6ff16018561d') in 0.018245 seconds 
+  Import took 0.025611 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.945154 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fb8621d0d3fc3b5d88d9a9af9c5dfa7') in 0.015919 seconds 
+  Import took 0.164167 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.242753 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27bd2577798ecb68b40011434ddd13d6') in 0.014255 seconds 
+  Import took 0.040688 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.166315 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c7cabf4358d504f92a48d071ed48396') in 0.017334 seconds 
+  Import took 0.155095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.857744 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2c52c5add6392376dd3ab491b807736') in 0.019951 seconds 
+  Import took 0.026415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.975980 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3d0937184632426d38c9123339300b5') in 0.015056 seconds 
+  Import took 0.020504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9414.887889 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05adac03ea97456e434c8071f75ac9c4') in 0.260753 seconds 
+  Import took 0.308814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.250281 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b60e39b5d48b10b9833f8527f83a9d52') in 0.044238 seconds 
+  Import took 0.049593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.303779 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ddbfc83d5db4f9e27535126337944c8') in 0.013872 seconds 
+  Import took 0.019218 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.938161 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe5a07f4b58d8ca000fdd516b9a547e3') in 0.021007 seconds 
+  Import took 0.029088 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.957512 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af6f5345e2e3d77cd4b358b8a463945c') in 0.038403 seconds 
+  Import took 0.042987 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.789181 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9c6508ad71fedc869d106e6019092d1') in 0.020802 seconds 
+  Import took 0.027589 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.570054 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9d5d53e9364f8af54bb602099dd8d94') in 0.019958 seconds 
+  Import took 0.027912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.382429 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58f03f758e185c25a55f29d3f51e37e2') in 0.021726 seconds 
+  Import took 0.026883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.960920 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb4317bae49df316e0a1b6efaa57fdab') in 0.018900 seconds 
+  Import took 0.025622 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.828098 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca0a7affa92e18efe44b8f3956b455d4') in 0.023083 seconds 
+  Import took 0.029077 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.567547 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4d2d8635f33ffc7f157606a426e8718') in 0.014336 seconds 
+  Import took 0.021370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.754326 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a516448df69cc638bce9618756d1f84') in 0.020879 seconds 
+  Import took 0.026401 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.895843 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a9db5e697cd575fd7d1220332c638b2') in 0.028272 seconds 
+  Import took 0.034526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.131033 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '494fd4ac22f181d75d051c8816c1b15d') in 0.015264 seconds 
+  Import took 0.022577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.884565 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2654e9dd670b74d3262f6a09d0d3cf88') in 0.023141 seconds 
+  Import took 0.054142 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.574852 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc1e32ef31baa16fbfc701ec710f2846') in 0.017371 seconds 
+  Import took 0.143359 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.860021 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21098538e0b6a30e2aa5922c7a958b95') in 0.017725 seconds 
+  Import took 0.049276 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.552334 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a6ba05524ff80b5983c1e3da23434ba') in 0.014846 seconds 
+  Import took 0.022355 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.229318 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4590659fb01197c4fd95bf08fe3e3080') in 0.198152 seconds 
+  Import took 0.236277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.770340 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd39c553df01ae87fd35b0d276d8bd607') in 0.008865 seconds 
+  Import took 0.015576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.172294 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62ab2a52bd8b389cfcfe88ebef7c8324') in 0.009825 seconds 
+  Import took 0.019279 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.442201 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '971778c8e04edfe39d6743c601dbd5cb') in 0.008811 seconds 
+  Import took 0.025007 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.526051 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6cb056aa5a86aa2e4fb67855ca94226') in 0.012771 seconds 
+  Import took 0.018506 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.102944 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff37692480c3a49f2b9aabc59d45bf48') in 0.009552 seconds 
+  Import took 0.014898 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.708712 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8d5da9a1009b43cad5f479de9d6928e') in 0.008694 seconds 
+  Import took 0.013618 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.368160 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a8cbab3f466f9750dd56e99cfd10d8e') in 0.025241 seconds 
+  Import took 0.096714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.146560 seconds.
+  path: Assets/Prefabs/Nature/Grass/Grass Small 2.prefab
+  artifactKey: Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Nature/Grass/Grass Small 2.prefab using Guid(d58e04c54e3f50349b72368fa36c4634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22c7de5c76651a6f84b6e7e162173f7c') in 0.010779 seconds 
+  Import took 0.018440 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.144852 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.704 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3707ms)
+		BeginReloadAssembly (1048ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (189ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (468ms)
+		EndReloadAssembly (2488ms)
+			LoadAssemblies (1303ms)
+			RebuildTransferFunctionScriptingTraits (14ms)
+			SetupTypeCache (612ms)
+			ReleaseScriptCaches (10ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (369ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (112ms)
+				ProcessInitializeOnLoadAttributes (196ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2789 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 121.4 MB.
+System memory in use after: 121.6 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 3300.
+Total: 9.883500 ms (FindLiveObjects: 0.429700 ms CreateObjectMapping: 0.197800 ms MarkObjects: 9.228000 ms  DeleteObjects: 0.026900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

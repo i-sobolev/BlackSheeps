@@ -60,6 +60,7 @@
     <Compile Include="Assets\Addons\SpriteSorting\Singleton.cs" />
     <Compile Include="Assets\Scripts\CameraMover.cs" />
     <Compile Include="Assets\Scripts\Tools\Extentions.cs" />
+    <Compile Include="Assets\Scripts\Tools\NavMeshGrid\Index.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\IsoSpriteSortingEditor.cs" />
     <Compile Include="Assets\Scripts\Unit\Spawner\UnitSpawner.cs" />
     <Compile Include="Assets\Scripts\InteractionEntity\InteractionEntityEditor.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\SoundList.cs" />
     <Compile Include="Assets\Scripts\Rocket\RocketPart.cs" />
     <Compile Include="Assets\Scripts\CameraScaler.cs" />
+    <Compile Include="Assets\Scripts\Tools\NavMeshGrid\NeighboringNodeSide.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Addons\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Addons\SpriteSorting\TopologicalSort.cs" />
@@ -91,10 +93,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Addons\DOTween\DOTween.XML" />
-    <None Include="Assets\Test Stuff\Shadow.shader" />
+    <None Include="Assets\Test Shadow Shader\Shadow.shader" />
     <None Include="Assets\Addons\DOTween\DOTween.dll" />
     <None Include="Assets\Addons\DOTween\readme.txt" />
-    <None Include="Assets\Test Stuff\Sprite&amp;Shadow.shader" />
+    <None Include="Assets\Test Shadow Shader\Sprite&amp;Shadow.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
