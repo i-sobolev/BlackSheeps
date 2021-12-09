@@ -1,49 +1,66 @@
 ﻿using DG.Tweening;
 using NavMeshGrid;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BlackSheeps
 {
     public class Unit : NavMeshGridAgent
     {
-        private Tween _currentAnimation;
+        private List<NavMeshGridNode> _pathNodesQueue = new List<NavMeshGridNode>();
 
-        private void OnDrawGizmos()
+        private NavMeshGridNode _targetNode = null;
+
+        private Tween _currentMovingAnimation = null;
+
+        private bool PathNodesEnded => _pathNodesQueue.Count <= 0;
+
+        private void Start()
         {
-            if (_currentPath != null && _currentPath.PathNodes.Count > 0)
-            {
-                Gizmos.color = Color.white;
-
-                for (int i = 0; i < _currentPath.PathNodes.Count - 1; i++)
-                    Gizmos.DrawLine(_currentPath.PathNodes[i].Position, _currentPath.PathNodes[i + 1].Position);
-            }
+            _currentMovingAnimation = DOTween.Sequence();
         }
 
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            if (_currentPath != null && _currentPath.ResultPathNodes.Count > 0)
+            {
+                Gizmos.color = Color.blue;
+
+                for (int i = 0; i < _currentPath.ResultPathNodes.Count - 1; i++)
+                    Gizmos.DrawLine(_currentPath.ResultPathNodes[i].Position, _currentPath.ResultPathNodes[i + 1].Position);
+            }
+        }
+#endif
         public void MoveTo(NavMeshGridNode node)
         {
             BuildPath(node);
-            BuildMoveSequence(_currentPath);
+
+            if (_currentPath.IsFound && _currentPath.ResultPathNodes.Count > 0)
+                BuildMoveSequence();
         }
 
-        public void BuildMoveSequence(Path path)
+        public void BuildMoveSequence()
         {
-            _currentAnimation?.Kill();
+            _pathNodesQueue = new List<NavMeshGridNode>(_currentPath.ResultPathNodes);
+            StartMoving();
+        }
 
-            var movingSequence = DOTween.Sequence();
+        public void StartMoving()
+        {
+            transform.DOKill();
+
+            transform.DOPath(
+                path: _currentPath.ResultPathNodes.Select(x => (Vector3)x.Position).ToArray(),
+                1f * _currentPath.ResultPathNodes.Count,
+                pathMode: PathMode.TopDown2D,
+                pathType: PathType.CatmullRom)
                 
-            foreach (var node in path.PathNodes)
-                movingSequence.Append(MoveToNode(node));
-
-            movingSequence.SetEase(Ease.Linear);
-
-            _currentAnimation = movingSequence;
-        }
-
-        public Tween MoveToNode(NavMeshGridNode node)
-        {
-            var tween = transform.DOMove(node.Position, 0.7f).SetEase(Ease.Linear);
-            tween.onComplete += () => LinkToGridNode(node);
-            return tween;
+                .onWaypointChange += (wayPointIndex) =>
+                {
+                    _currentNode = _pathNodesQueue[wayPointIndex];
+                };
         }
 
         public override void LinkToGridNode(NavMeshGridNode node)

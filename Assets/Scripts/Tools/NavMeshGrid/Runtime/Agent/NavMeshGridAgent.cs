@@ -11,6 +11,7 @@ namespace NavMeshGrid
         protected void BuildPath(NavMeshGridNode targetNode)
         {
             _currentPath.Find(_currentNode, targetNode);
+            
         }
 
         public virtual void LinkToGridNode(NavMeshGridNode node)

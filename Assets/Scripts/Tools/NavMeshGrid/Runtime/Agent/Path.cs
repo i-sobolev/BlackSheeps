@@ -7,9 +7,9 @@ namespace NavMeshGrid
 {
     public class Path
     {
-        public List<NavMeshGridNode> PathNodes { get; private set; } = new List<NavMeshGridNode>();
+        public List<NavMeshGridNode> ResultPathNodes { get; private set; } = new List<NavMeshGridNode>();
 
-        public bool IsFound => PathNodes != null && PathNodes.Count > 0;
+        public bool IsFound => ResultPathNodes != null && ResultPathNodes.Count > 0;
 
         public void Find(NavMeshGridNode from, NavMeshGridNode to)
         {
@@ -26,7 +26,7 @@ namespace NavMeshGrid
                 var currentNode = ChooseNode(reachable, targetNode);
 
                 if (currentNode.Node == targetNode)
-                    PathNodes = BuildPath(new PathNode(targetNode, 0) { PreviousNode = currentNode });
+                    ResultPathNodes = BuildPath(new PathNode(targetNode, 0) { PreviousNode = currentNode });
 
                 reachable.Remove(currentNode);
                 explored.Add(currentNode.Node);
