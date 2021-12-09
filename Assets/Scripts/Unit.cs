@@ -1,6 +1,5 @@
 ﻿using DG.Tweening;
 using NavMeshGrid;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,18 +7,7 @@ namespace BlackSheeps
 {
     public class Unit : NavMeshGridAgent
     {
-        private List<NavMeshGridNode> _pathNodesQueue = new List<NavMeshGridNode>();
-
-        private NavMeshGridNode _targetNode = null;
-
-        private Tween _currentMovingAnimation = null;
-
-        private bool PathNodesEnded => _pathNodesQueue.Count <= 0;
-
-        private void Start()
-        {
-            _currentMovingAnimation = DOTween.Sequence();
-        }
+        private const float MovingSpeed = 1f;
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
@@ -38,29 +26,24 @@ namespace BlackSheeps
             BuildPath(node);
 
             if (_currentPath.IsFound && _currentPath.ResultPathNodes.Count > 0)
-                BuildMoveSequence();
-        }
-
-        public void BuildMoveSequence()
-        {
-            _pathNodesQueue = new List<NavMeshGridNode>(_currentPath.ResultPathNodes);
-            StartMoving();
+                StartMoving();
         }
 
         public void StartMoving()
         {
             transform.DOKill();
-
             transform.DOPath(
-                path: _currentPath.ResultPathNodes.Select(x => (Vector3)x.Position).ToArray(),
-                1f * _currentPath.ResultPathNodes.Count,
+                path: _currentPath.ResultPathNodes.Select(node => (Vector3)node.Position).ToArray(),
+                duration: MovingSpeed * _currentPath.ResultPathNodes.Count,
                 pathMode: PathMode.TopDown2D,
                 pathType: PathType.CatmullRom)
-                
-                .onWaypointChange += (wayPointIndex) =>
-                {
-                    _currentNode = _pathNodesQueue[wayPointIndex];
-                };
+                .OnWaypointChange(OnWayPointChanged)
+                .SetId(transform);
+        }
+
+        private void OnWayPointChanged(int nodeIndex)
+        {
+            LinkToGridNode(_currentPath.ResultPathNodes[nodeIndex]);
         }
 
         public override void LinkToGridNode(NavMeshGridNode node)
