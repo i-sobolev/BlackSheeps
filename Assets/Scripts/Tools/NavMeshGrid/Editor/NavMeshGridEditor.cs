@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace NavMeshGrid
@@ -7,18 +8,18 @@ namespace NavMeshGrid
     public class NavMeshGridEditor : Editor
     {
         private bool _changingOffsetsAllowed;
-
         private Vector3 _lastTargetPosition;
+        private string _loadingBackupName;
 
         private NavMeshGridNode _selectedNode = null;
+        
+        private readonly Color _nodesConnectionsColor = new Color(1, 1, 1, 0.1f);
 
         protected NavMeshGrid Grid => target as NavMeshGrid;
 
 
         public void OnSceneGUI()
         {
-            DrawTogglesLayout();
-
             MoveRootNodeToTargetTransforPositins();
 
             DrawNodesConnections();
@@ -28,6 +29,8 @@ namespace NavMeshGrid
             DrawNodesSelectButtons();
 
             DrawAgentsHandles();
+            
+            DrawSettingsWindow();
         }
 
         private void DrawNodesSelectButtons()
@@ -74,20 +77,8 @@ namespace NavMeshGrid
                 DrawNewNodesButtonsForAll();
             }
         }
-
-        private void DrawTogglesLayout()
-        {
-            Handles.BeginGUI();
-            {
-                GUILayout.BeginArea(new Rect(Vector2.one * 10f, new Vector2(200f, 20f)), new GUIStyle("box"));
-                {
-                    _changingOffsetsAllowed = GUILayout.Toggle(_changingOffsetsAllowed, "Show nodes offsets handles");
-                }
-                GUILayout.EndArea();
-            }
-            Handles.EndGUI();
-        }
-
+        
+        
         private void MoveRootNodeToTargetTransforPositins()
         {
             var currentTargetPosition = Grid.transform.position;
@@ -115,8 +106,6 @@ namespace NavMeshGrid
             }
         }
 
-        private readonly Color _nodesConnectionsColor = new Color(1, 1, 1, 0.1f);
-
         private void DrawNodesConnections()
         {
             Handles.color = _nodesConnectionsColor;
@@ -129,6 +118,47 @@ namespace NavMeshGrid
                 }
             }
         }
+
+        #region SettingsWindow
+        private void DrawSettingsWindow()
+        {
+            Handles.BeginGUI();
+            {
+                GUILayout.BeginArea(new Rect(Vector2.one * 10f, new Vector2(200f, 140f)), new GUIStyle("box"));
+                {
+                    _changingOffsetsAllowed = GUILayout.Toggle(_changingOffsetsAllowed, "Show nodes offsets handles");
+
+                    GUILayout.Space(20f);
+
+                    DrawBackupButton();
+                }
+                GUILayout.EndArea();
+            }
+            Handles.EndGUI();
+        }
+
+        private void DrawBackupButton()
+        {
+            var madeBackupButtonClicked = GUILayout.Button("Made backup");
+
+            if (madeBackupButtonClicked)
+                NavMeshGridBackupHelper.MadeBackup(Grid.Nodes.ToArray());
+
+            GUILayout.Space(20f);
+
+            GUILayout.Label("Backup file name");
+            _loadingBackupName = GUILayout.TextField(_loadingBackupName);
+
+            var LoadFromBackupButtonClicked = GUILayout.Button("Load from backup");
+
+            if (LoadFromBackupButtonClicked)
+            {
+                if (NavMeshGridBackupHelper.LoadModelFromFile(_loadingBackupName, out var nodes))
+                    Grid.SetDataFromModel(nodes);
+            }
+        }
+
+        #endregion
 
         #region AgentsGridLinking
         public void DrawAgentsHandles()
@@ -159,7 +189,7 @@ namespace NavMeshGrid
                 var currentDistance = Vector2.Distance(node.Position, agent.transform.position);
 
                 if (currentDistance < distanceToLink)
-                    agent.LinkToGridNode(node);
+                    agent.LinkToGridNode(node, true);
             }
         }
         #endregion

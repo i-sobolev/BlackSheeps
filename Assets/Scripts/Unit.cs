@@ -45,10 +45,5 @@ namespace BlackSheeps
         {
             LinkToGridNode(_currentPath.ResultPathNodes[nodeIndex]);
         }
-
-        public override void LinkToGridNode(NavMeshGridNode node)
-        {
-            _currentNode = node;
-        }
     }
 }

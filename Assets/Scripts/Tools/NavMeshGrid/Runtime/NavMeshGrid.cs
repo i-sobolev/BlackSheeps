@@ -26,7 +26,42 @@ namespace NavMeshGrid
             node = _nodes.Find(node => node.Index == index);
             return node != null;
         }
+#if UNITY_EDITOR
+        public void SetDataFromModel(NavMeshGridNodeModel[] models)
+        {
+            Reset();
 
+            foreach (var model in models)
+            {
+                if (model.Index == RootNode.Index)
+                {
+                    RootNode.SetPosition(model.Position);
+                    transform.position = model.Position;
+                    continue;
+                }
+
+                var newNode = AddNewNode(model.Index);
+                newNode.SetPosition(model.Position);
+            }
+
+            SetOffsetsFromNodes();
+
+            void SetOffsetsFromNodes()
+            {
+                if (RootNode.TryGetNeighboringNodeBySide(Side.Right, out var rightNode))
+                    _nodesHorizontalOffset = rightNode.Position - RootNode.Position;
+                
+                if (RootNode.TryGetNeighboringNodeBySide(Side.Left, out var leftNode))
+                    _nodesHorizontalOffset = -(leftNode.Position - RootNode.Position);
+
+                if (RootNode.TryGetNeighboringNodeBySide(Side.Upper, out var upperNode))
+                    _nodesVerticalOffset = upperNode.Position - RootNode.Position;
+
+                if (RootNode.TryGetNeighboringNodeBySide(Side.Lower, out var lowerNode))
+                    _nodesVerticalOffset = -(lowerNode.Position - RootNode.Position);
+            }
+        }
+#endif
         public NavMeshGridNode AddNewNode(Index index)
         {
             var newNode = ScriptableObject.CreateInstance<NavMeshGridNode>().Initialize(index);

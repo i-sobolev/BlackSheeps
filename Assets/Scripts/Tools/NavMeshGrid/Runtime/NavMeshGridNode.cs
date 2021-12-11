@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace NavMeshGrid
 {
+    [Serializable]
     public class NavMeshGridNode : ScriptableObject
     {
         private NavMeshGridNodeData _data;
