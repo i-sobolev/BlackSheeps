@@ -12,11 +12,10 @@ namespace NavMeshGrid
         private string _loadingBackupName;
 
         private NavMeshGridNode _selectedNode = null;
-        
+
         private readonly Color _nodesConnectionsColor = new Color(1, 1, 1, 0.1f);
 
         protected NavMeshGrid Grid => target as NavMeshGrid;
-
 
         public void OnSceneGUI()
         {
@@ -29,7 +28,7 @@ namespace NavMeshGrid
             DrawNodesSelectButtons();
 
             DrawAgentsHandles();
-            
+
             DrawSettingsWindow();
         }
 
@@ -37,11 +36,14 @@ namespace NavMeshGrid
         {
             foreach (var node in Grid.Nodes)
             {
+                if (node == Grid.RootNode)
+                    continue;
+
                 var nodeButtonClicked = Handles.Button(node.Position, Quaternion.identity, 0.2f, 0.2f, Handles.RectangleHandleCap);
 
                 if (nodeButtonClicked)
                     _selectedNode = node;
-            };
+            }
 
 
             if (_selectedNode)
@@ -77,8 +79,8 @@ namespace NavMeshGrid
                 DrawNewNodesButtonsForAll();
             }
         }
-        
-        
+
+
         private void MoveRootNodeToTargetTransforPositins()
         {
             var currentTargetPosition = Grid.transform.position;
@@ -140,24 +142,26 @@ namespace NavMeshGrid
         private void DrawBackupButton()
         {
             var madeBackupButtonClicked = GUILayout.Button("Made backup");
-
-            if (madeBackupButtonClicked)
-                NavMeshGridBackupHelper.MadeBackup(Grid.Nodes.ToArray());
+            {
+                if (madeBackupButtonClicked)
+                    NavMeshGridBackupHelper.MadeBackup(Grid.Nodes.ToArray());
+            }
 
             GUILayout.Space(20f);
 
             GUILayout.Label("Backup file name");
-            _loadingBackupName = GUILayout.TextField(_loadingBackupName);
-
-            var LoadFromBackupButtonClicked = GUILayout.Button("Load from backup");
-
-            if (LoadFromBackupButtonClicked)
             {
-                if (NavMeshGridBackupHelper.LoadModelFromFile(_loadingBackupName, out var nodes))
-                    Grid.SetDataFromModel(nodes);
+                _loadingBackupName = GUILayout.TextField(_loadingBackupName);
+
+                var LoadFromBackupButtonClicked = GUILayout.Button("Load from backup");
+
+                if (LoadFromBackupButtonClicked)
+                {
+                    if (NavMeshGridBackupHelper.LoadModelFromFile(_loadingBackupName, out var nodes))
+                        Grid.SetDataFromModel(nodes);
+                }
             }
         }
-
         #endregion
 
         #region AgentsGridLinking
@@ -176,14 +180,14 @@ namespace NavMeshGrid
 
                     if (EditorGUI.EndChangeCheck())
                         LinkAgentToClosestNode(agent);
-                }                   
+                }
             }
         }
 
         private void LinkAgentToClosestNode(NavMeshGridAgent agent)
         {
             const float distanceToLink = 0.2f;
-            
+
             foreach (var node in Grid.Nodes)
             {
                 var currentDistance = Vector2.Distance(node.Position, agent.transform.position);

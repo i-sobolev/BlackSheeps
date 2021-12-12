@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace NavMeshGrid
         public Vector2 NodesVerticalOffset => _nodesVerticalOffset;
         public Vector2 NodesHorizontalOffset => _nodesHorizontalOffset;
         public IEnumerable<NavMeshGridNode> Nodes => _nodes;
+
         public NavMeshGridNode RootNode => _nodes[0];
 
         private void Reset()
@@ -82,8 +84,8 @@ namespace NavMeshGrid
 
         public void RemoveNode(NavMeshGridNode selectedNode)
         {
-            foreach (var node in selectedNode.AllNeighboringNodes)
-                node.RemoveNeighboringNode(selectedNode);
+            foreach (var neighboringNode in selectedNode.AllNeighboringNodes)
+                neighboringNode.RemoveNeighboringNode(selectedNode);
 
             _nodes.Remove(selectedNode);
         }
@@ -94,21 +96,35 @@ namespace NavMeshGrid
             _nodesVerticalOffset = vertical;
         }
 
+
         public void RefreshNodesPositions()
         {
+            var reachable = new Queue<NavMeshGridNode>();
+            reachable.Enqueue(RootNode);
+
+            var refreshed = new List<NavMeshGridNode>() { RootNode };
+
+            while (reachable.Count > 0)
+            {
+                var currentNode = reachable.Dequeue();
+
+                foreach (var side in System.Enum.GetValues(typeof(Side)).Cast<Side>())
+                    TryGetNodeAndSetPositionBySide(currentNode, side);
+            }
+
             void TryGetNodeAndSetPositionBySide(NavMeshGridNode node, Side neededNodeSide)
             {
                 if (node.TryGetNeighboringNodeBySide(neededNodeSide, out var neededNode))
+                {
+                    if (refreshed.Contains(neededNode))
+                        return;
+
                     neededNode.SetPosition(node.Position + GetOffsetBySide(neededNodeSide));
+                    refreshed.Add(neededNode);
+                    reachable.Enqueue(neededNode);
+                }
             }
 
-            foreach (var node in _nodes)
-            {
-                TryGetNodeAndSetPositionBySide(node, Side.Left);
-                TryGetNodeAndSetPositionBySide(node, Side.Right);
-                TryGetNodeAndSetPositionBySide(node, Side.Upper);
-                TryGetNodeAndSetPositionBySide(node, Side.Lower);
-            }
         }
 
         public Vector2 GetOffsetBySide(Side neighboringNodeSide)
@@ -119,9 +135,12 @@ namespace NavMeshGrid
                 Side.Right => _nodesHorizontalOffset,
                 Side.Lower => -_nodesVerticalOffset,
                 Side.Upper => _nodesVerticalOffset,
+                Side.UpperLeft => _nodesVerticalOffset -_nodesHorizontalOffset,
+                Side.UpperRight => _nodesVerticalOffset + _nodesHorizontalOffset,
+                Side.LowerLeft => -_nodesVerticalOffset - _nodesHorizontalOffset,
+                Side.LowerRight => -_nodesVerticalOffset + _nodesHorizontalOffset,
                 _ => Vector2.zero,
             };
         }
-
     }
 }
