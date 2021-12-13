@@ -13,11 +13,15 @@ namespace NavMeshGrid
 
         [SerializeField] private NavMeshGridNode[] _neighboringNodes;
         [SerializeField] private Vector2 _position;
+        [SerializeField] private Vector2 _customOffset = Vector2.zero;
 
         public NavMeshGridNodeData Data => _data;
         public Index Index => new Index(_index);
 
-        public Vector2 Position => _position;
+        public Vector2 Position => _position + _customOffset;
+        public Vector2 PositionWithoutOffset => _position;
+        public Vector2 CustomOffset => _customOffset;
+
         public IEnumerable<NavMeshGridNode> AllNeighboringNodes
         {
             get
@@ -84,5 +88,10 @@ namespace NavMeshGrid
         }
 
         public void SetPosition(Vector2 position) => _position = position;
+
+        public void SetCustomOffset(Vector2 offset, float maxLenght = 0)
+        {
+            _customOffset = maxLenght != 0 ? Vector2.ClampMagnitude(offset, maxLenght) : offset;
+        }
     }
 }

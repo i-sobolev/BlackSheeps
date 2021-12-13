@@ -13,10 +13,12 @@ namespace NavMeshGrid
             _currentPath.Find(_currentNode, targetNode);
         }
 
-        public virtual void LinkToGridNode(NavMeshGridNode node)
+        public void LinkToGridNode(NavMeshGridNode node, bool snap = false)
         {
             _currentNode = node;
-            transform.position = node.Position;
+
+            if (snap)
+                transform.position = node.Position;
         }
     }
 }
