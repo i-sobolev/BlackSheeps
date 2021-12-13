@@ -7,7 +7,6 @@ namespace NavMeshGrid
     [CustomEditor(typeof(NavMeshGrid))]
     public class NavMeshGridEditor : Editor
     {
-        private bool _changingOffsetsAllowed;
         private Vector3 _lastTargetPosition;
         private string _loadingBackupName;
 
@@ -18,6 +17,10 @@ namespace NavMeshGrid
         protected NavMeshGrid Grid => target as NavMeshGrid;
 
         private bool _nodesListShowed = false;
+
+        private bool _showGridOffsetsHandles = false;
+        private bool _showNodesCustomOffsetsHandles = false;
+
 
         public override void OnInspectorGUI()
         {
@@ -92,8 +95,23 @@ namespace NavMeshGrid
             DrawSettingsWindow();
         }
 
+        private void MoveRootNodeToTargetTransforPositins()
+        {
+            var currentTargetPosition = Grid.transform.position;
+
+            if (_lastTargetPosition != currentTargetPosition)
+            {
+                _lastTargetPosition = currentTargetPosition;
+                Grid.RootNode.SetPosition(_lastTargetPosition);
+
+                Grid.RefreshNodesPositions();
+            }
+        }
+
         private void DrawNodesSelectButtons()
         {
+            Handles.color = Color.green;
+
             foreach (var node in Grid.Nodes)
             {
                 if (node == Grid.RootNode)
@@ -141,20 +159,6 @@ namespace NavMeshGrid
             }
         }
 
-
-        private void MoveRootNodeToTargetTransforPositins()
-        {
-            var currentTargetPosition = Grid.transform.position;
-
-            if (_lastTargetPosition != currentTargetPosition)
-            {
-                _lastTargetPosition = currentTargetPosition;
-                Grid.RootNode.SetPosition(_lastTargetPosition);
-
-                Grid.RefreshNodesPositions();
-            }
-        }
-
         private void DrawNodesIndexes()
         {
             foreach (var node in Grid.Nodes)
@@ -189,18 +193,19 @@ namespace NavMeshGrid
             {
                 GUILayout.BeginArea(new Rect(Vector2.one * 10f, new Vector2(200f, 140f)), new GUIStyle("box"));
                 {
-                    _changingOffsetsAllowed = GUILayout.Toggle(_changingOffsetsAllowed, "Show nodes offsets handles");
+                    _showGridOffsetsHandles = GUILayout.Toggle(_showGridOffsetsHandles, "Show grid offsets handles");
+                    _showNodesCustomOffsetsHandles = GUILayout.Toggle(_showNodesCustomOffsetsHandles, "Show nodes custom offsets handles");
 
                     GUILayout.Space(20f);
 
-                    DrawBackupButton();
+                    DrawBackupButtons();
                 }
                 GUILayout.EndArea();
             }
             Handles.EndGUI();
         }
 
-        private void DrawBackupButton()
+        private void DrawBackupButtons()
         {
             var madeBackupButtonClicked = GUILayout.Button("Made backup");
             {
@@ -229,6 +234,8 @@ namespace NavMeshGrid
         #region AgentsGridLinking
         public void DrawAgentsHandles()
         {
+            Handles.color = Color.blue;
+
             foreach (var agent in FindObjectsOfType<NavMeshGridAgent>())
             {
                 EditorGUI.BeginChangeCheck();
@@ -307,7 +314,12 @@ namespace NavMeshGrid
         #region Offsets
         private void DrawNodeCustomOffsetHandle(NavMeshGridNode node)
         {
+            if (!_showNodesCustomOffsetsHandles)
+                return;
+
             EditorGUI.BeginChangeCheck();
+
+            Handles.color = Color.white;
 
             var buttonOffset = Vector2.down * 0.4f;
             var customOffset = Handles.FreeMoveHandle(node.Position + buttonOffset, Quaternion.identity, 0.1f, Vector3.zero, Handles.DotHandleCap);
@@ -321,17 +333,22 @@ namespace NavMeshGrid
 
         private void DrawOffsetsHandles()
         {
-            if (_changingOffsetsAllowed)
+            if (!_showGridOffsetsHandles)
                 return;
 
             EditorGUI.BeginChangeCheck();
 
-            var nodesHorizontalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Grid.NodesHorizontalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
-            var nodesVerticalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Grid.NodesVerticalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
+            Handles.color = Color.red;
+            var nodesHorizontalOffset = Handles.FreeMoveHandle(Grid.RootNode.Position + Grid.NodesHorizontalOffset + Vector2.right * 0.4f, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
+            
+            Handles.color = Color.green;
+            var nodesVerticalOffset = Handles.FreeMoveHandle(Grid.RootNode.Position + Grid.NodesVerticalOffset + Vector2.right * 0.4f, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
 
             if (EditorGUI.EndChangeCheck())
             {
-                Grid.SetOffsets(nodesHorizontalOffsetTemp, nodesVerticalOffsetTemp);
+                Grid.SetOffsets(
+                    (Vector2)nodesHorizontalOffset - Grid.RootNode.Position - Vector2.right * 0.4f, 
+                    (Vector2)nodesVerticalOffset - Grid.RootNode.Position - Vector2.right * 0.4f);
 
                 Debug.Log("Offsets was changed");
                 Grid.RefreshNodesPositions();
