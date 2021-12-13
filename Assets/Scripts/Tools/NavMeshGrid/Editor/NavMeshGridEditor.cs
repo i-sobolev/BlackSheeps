@@ -12,16 +12,14 @@ namespace NavMeshGrid
 
         private NavMeshGridNode _selectedNode = null;
 
-        private readonly Color _nodesConnectionsColor = new Color(1, 1, 1, 0.1f);
-
-        protected NavMeshGrid Grid => target as NavMeshGrid;
-
         private bool _nodesListShowed = false;
-
         private bool _showGridOffsetsHandles = false;
         private bool _showNodesCustomOffsetsHandles = false;
 
-
+        private readonly Color _nodesConnectionsColor = new Color(1, 1, 1, 0.1f);
+        
+        protected NavMeshGrid Grid => target as NavMeshGrid;
+        
         public override void OnInspectorGUI()
         {
             ShowNodesArray(serializedObject.FindProperty("_nodes"), "Nodes list");
@@ -191,14 +189,21 @@ namespace NavMeshGrid
         {
             Handles.BeginGUI();
             {
-                GUILayout.BeginArea(new Rect(Vector2.one * 10f, new Vector2(200f, 140f)), new GUIStyle("box"));
+                GUILayout.BeginArea(new Rect(Vector2.one * 10f, new Vector2(200f, 110f)), new GUIStyle("box"));
                 {
-                    _showGridOffsetsHandles = GUILayout.Toggle(_showGridOffsetsHandles, "Show grid offsets handles");
-                    _showNodesCustomOffsetsHandles = GUILayout.Toggle(_showNodesCustomOffsetsHandles, "Show nodes custom offsets handles");
-
-                    GUILayout.Space(20f);
-
                     DrawBackupButtons();
+                }
+                GUILayout.EndArea();
+            }
+            Handles.EndGUI();
+
+            Handles.BeginGUI();
+            {
+                GUILayout.BeginArea(new Rect(Vector2.one * 10f - Vector2.down * 130f, new Vector2(200f, 60f)), new GUIStyle("box"));
+                {
+                    GUILayout.Label("Toggle handles");
+                    _showGridOffsetsHandles = GUILayout.Toggle(_showGridOffsetsHandles, "Grid offsets handles");
+                    _showNodesCustomOffsetsHandles = GUILayout.Toggle(_showNodesCustomOffsetsHandles, "Nodes custom offsets handles");
                 }
                 GUILayout.EndArea();
             }
@@ -336,19 +341,22 @@ namespace NavMeshGrid
             if (!_showGridOffsetsHandles)
                 return;
 
+            var rootNodePosition = Grid.RootNode.Position;
+            var handleOffset = Vector2.right * 0.4f;
+
             EditorGUI.BeginChangeCheck();
 
             Handles.color = Color.red;
-            var nodesHorizontalOffset = Handles.FreeMoveHandle(Grid.RootNode.Position + Grid.NodesHorizontalOffset + Vector2.right * 0.4f, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
+            var nodesHorizontalOffset = Handles.FreeMoveHandle(rootNodePosition + Grid.NodesHorizontalOffset + handleOffset, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
             
             Handles.color = Color.green;
-            var nodesVerticalOffset = Handles.FreeMoveHandle(Grid.RootNode.Position + Grid.NodesVerticalOffset + Vector2.right * 0.4f, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
+            var nodesVerticalOffset = Handles.FreeMoveHandle(rootNodePosition + Grid.NodesVerticalOffset + handleOffset, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
 
             if (EditorGUI.EndChangeCheck())
             {
                 Grid.SetOffsets(
-                    (Vector2)nodesHorizontalOffset - Grid.RootNode.Position - Vector2.right * 0.4f, 
-                    (Vector2)nodesVerticalOffset - Grid.RootNode.Position - Vector2.right * 0.4f);
+                    (Vector2)nodesHorizontalOffset - rootNodePosition - handleOffset, 
+                    (Vector2)nodesVerticalOffset - rootNodePosition - handleOffset);
 
                 Debug.Log("Offsets was changed");
                 Grid.RefreshNodesPositions();
