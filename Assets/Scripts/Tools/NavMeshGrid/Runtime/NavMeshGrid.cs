@@ -1,10 +1,11 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace NavMeshGrid
 {
+    [Serializable]
     public class NavMeshGrid : MonoBehaviour
     {
         [SerializeField] private List<NavMeshGridNode> _nodes;
@@ -15,12 +16,14 @@ namespace NavMeshGrid
         public Vector2 NodesHorizontalOffset => _nodesHorizontalOffset;
         public IEnumerable<NavMeshGridNode> Nodes => _nodes;
 
-        public NavMeshGridNode RootNode => _nodes[0];
-
+        public NavMeshGridNode RootNode { get; private set; }
+        
         private void Reset()
         {
             _nodes.Clear();
-            _nodes.Add(ScriptableObject.CreateInstance<NavMeshGridNode>().Initialize(new Index(0, 0)));
+
+            RootNode = ScriptableObject.CreateInstance<NavMeshGridNode>().Initialize(new Index(0, 0));
+            _nodes.Add(RootNode);
         }
 
         public bool GetNodeByIndex(Index index, out NavMeshGridNode node)
@@ -28,6 +31,7 @@ namespace NavMeshGrid
             node = _nodes.Find(node => node.Index == index);
             return node != null;
         }
+
 #if UNITY_EDITOR
         public void SetDataFromModel(NavMeshGridNodeModel[] models)
         {
@@ -43,6 +47,7 @@ namespace NavMeshGrid
                 }
 
                 var newNode = AddNewNode(model.Index);
+                newNode.SetCustomOffset(model.Offset);
                 newNode.SetPosition(model.Position);
             }
 
@@ -63,6 +68,12 @@ namespace NavMeshGrid
                     _nodesVerticalOffset = -(lowerNode.Position - RootNode.Position);
             }
         }
+
+        [ContextMenu("Sort nodes list by index")]
+        public void SortNodesByIndex()
+        {
+            _nodes = _nodes.OrderBy(x => x.Index.Row).ThenBy(y => y.Index.Column).ToList();
+        }
 #endif
         public NavMeshGridNode AddNewNode(Index index)
         {
@@ -76,7 +87,7 @@ namespace NavMeshGrid
                     newNode.AddNeighboringNode(side, foundedNode);
             }
 
-            foreach (var side in System.Enum.GetValues(typeof(Side)).Cast<Side>())
+            foreach (var side in Enum.GetValues(typeof(Side)).Cast<Side>())
                 TryAddNeghboringNode(side);
 
             return newNode;
@@ -108,7 +119,7 @@ namespace NavMeshGrid
             {
                 var currentNode = reachable.Dequeue();
 
-                foreach (var side in System.Enum.GetValues(typeof(Side)).Cast<Side>())
+                foreach (var side in Enum.GetValues(typeof(Side)).Cast<Side>())
                     TryGetNodeAndSetPositionBySide(currentNode, side);
             }
 
@@ -119,7 +130,7 @@ namespace NavMeshGrid
                     if (refreshed.Contains(neededNode))
                         return;
 
-                    neededNode.SetPosition(node.Position + GetOffsetBySide(neededNodeSide));
+                    neededNode.SetPosition(node.PositionWithoutOffset + GetOffsetBySide(neededNodeSide));
                     refreshed.Add(neededNode);
                     reachable.Enqueue(neededNode);
                 }

@@ -17,6 +17,66 @@ namespace NavMeshGrid
 
         protected NavMeshGrid Grid => target as NavMeshGrid;
 
+        private bool _nodesListShowed = false;
+
+        public override void OnInspectorGUI()
+        {
+            ShowNodesArray(serializedObject.FindProperty("_nodes"), "Nodes list");
+
+            void ShowNodesArray(SerializedProperty list, string label)
+            {
+                if (EditorGUILayout.DropdownButton(new GUIContent(label), FocusType.Passive))
+                    _nodesListShowed = !_nodesListShowed;
+                
+                if (_nodesListShowed)
+                {
+                    for (int i = 0; i < list.arraySize; i++)
+                    {
+                        EditorGUI.indentLevel += 1;
+
+                        var element = list.GetArrayElementAtIndex(i);
+
+                        var node = element.objectReferenceValue as NavMeshGridNode;
+
+                        EditorGUILayout.PropertyField(element,
+                        new GUIContent($"Node \t{node.Index.Row}\t{node.Index.Column}"));
+                        EditorGUI.indentLevel -= 1;
+                    }
+                }
+
+                if (_selectedNode)
+                {
+                    for (int i = 0; i < list.arraySize; i++)
+                    {
+                        var element = list.GetArrayElementAtIndex(i);
+                        var node = element.objectReferenceValue as NavMeshGridNode;
+
+                        if (node.Index == _selectedNode.Index)
+                        {
+                            EditorGUILayout.Space(20);
+                            GUILayout.Label("Selected node:");
+
+                            EditorGUILayout.PropertyField(element,
+                            new GUIContent($"Node \t{node.Index.Row}\t{node.Index.Column}"));
+                            EditorGUI.indentLevel -= 1;
+                            EditorGUILayout.Space();
+
+                            var resetCustomOffsetButtonClicked = GUILayout.Button("Reset custom offset");
+
+                            if (resetCustomOffsetButtonClicked)
+                            {
+                                _selectedNode.SetCustomOffset(Vector2.zero, 1);
+                                Grid.RefreshNodesPositions();
+                            }
+
+                            Repaint();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         public void OnSceneGUI()
         {
             MoveRootNodeToTargetTransforPositins();
@@ -49,6 +109,7 @@ namespace NavMeshGrid
             if (_selectedNode)
             {
                 DrawNewNodesButtons(_selectedNode);
+                DrawNodeCustomOffsetHandle(_selectedNode);
 
                 Handles.BeginGUI();
 
@@ -162,6 +223,7 @@ namespace NavMeshGrid
                 }
             }
         }
+
         #endregion
 
         #region AgentsGridLinking
@@ -220,7 +282,7 @@ namespace NavMeshGrid
                 var buttonSize = new Vector2(50f, 20f);
 
                 var addNewNodeButtonClicked = GUI.Button(
-                    position: new Rect(HandleUtility.WorldToGUIPoint(node.Position + Grid.GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize),
+                    position: new Rect(HandleUtility.WorldToGUIPoint(node.PositionWithoutOffset + Grid.GetOffsetBySide(side)) - buttonSize * 0.5f, buttonSize),
                     text: $"+{side}");
 
                 if (addNewNodeButtonClicked)
@@ -243,6 +305,20 @@ namespace NavMeshGrid
         #endregion
 
         #region Offsets
+        private void DrawNodeCustomOffsetHandle(NavMeshGridNode node)
+        {
+            EditorGUI.BeginChangeCheck();
+
+            var buttonOffset = Vector2.down * 0.4f;
+            var customOffset = Handles.FreeMoveHandle(node.Position + buttonOffset, Quaternion.identity, 0.1f, Vector3.zero, Handles.DotHandleCap);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                node.SetCustomOffset((Vector2)customOffset - node.PositionWithoutOffset - buttonOffset, (Grid.NodesHorizontalOffset + Grid.NodesVerticalOffset).magnitude / 4f);
+                Debug.Log(node.PositionWithoutOffset);
+            }
+        }
+
         private void DrawOffsetsHandles()
         {
             if (_changingOffsetsAllowed)
@@ -252,10 +328,6 @@ namespace NavMeshGrid
 
             var nodesHorizontalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Grid.NodesHorizontalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
             var nodesVerticalOffsetTemp = Handles.FreeMoveHandle(Vector2.zero + Grid.NodesVerticalOffset, Quaternion.identity, 0.2f, Vector2.zero, Handles.RectangleHandleCap);
-
-            Handles.BeginGUI();
-
-            Handles.EndGUI();
 
             if (EditorGUI.EndChangeCheck())
             {

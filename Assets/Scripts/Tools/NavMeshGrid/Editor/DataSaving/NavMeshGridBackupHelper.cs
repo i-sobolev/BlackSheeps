@@ -21,7 +21,12 @@ namespace NavMeshGrid
             var fileStream = File.Create(fileName);
 
             var nodesModels = nodes
-                .Select(x => new NavMeshGridNodeModel() { Position = x.Position, Index = x.Index })
+                .Select(x => new NavMeshGridNodeModel() 
+                { 
+                    Index = x.Index, 
+                    Position = x.PositionWithoutOffset, 
+                    Offset = x.CustomOffset 
+                })
                 .ToArray();
 
             var json = JsonHelper.ArrayToJson(nodesModels);
