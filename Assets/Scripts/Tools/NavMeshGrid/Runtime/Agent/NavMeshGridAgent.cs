@@ -13,9 +13,12 @@ namespace NavMeshGrid
             _currentPath.Find(_currentNode, targetNode);
         }
 
-        public void LinkToGridNode(NavMeshGridNode node, bool snap = false)
+        public virtual void LinkToGridNode(NavMeshGridNode node, bool snap = false)
         {
+            _currentNode.RemoveCurrentAgent();
+
             _currentNode = node;
+            _currentNode.LinkAgent(this);
 
             if (snap)
                 transform.position = node.Position;

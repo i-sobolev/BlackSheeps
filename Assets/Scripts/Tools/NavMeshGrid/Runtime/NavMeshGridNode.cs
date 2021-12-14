@@ -7,7 +7,10 @@ namespace NavMeshGrid
 {
     public class NavMeshGridNode : ScriptableObject
     {
-        private NavMeshGridNodeData _data;
+        public event Action<NavMeshGridAgent> AgentLinked;
+        public event Action<NavMeshGridAgent> AgentRemoved;
+
+        private NavMeshGridAgent _agentOnNode;
 
         [SerializeField] private Index _index;
 
@@ -15,7 +18,7 @@ namespace NavMeshGrid
         [SerializeField] private Vector2 _position;
         [SerializeField] private Vector2 _customOffset = Vector2.zero;
 
-        public NavMeshGridNodeData Data => _data;
+        public NavMeshGridAgent AgentOnNode => _agentOnNode;
         public Index Index => new Index(_index);
 
         public Vector2 Position => _position + _customOffset;
@@ -55,6 +58,19 @@ namespace NavMeshGrid
             _index = index;
 
             return this;
+        }
+
+        public void LinkAgent(NavMeshGridAgent agent)
+        {
+            _agentOnNode = agent;
+            AgentLinked?.Invoke(agent);
+        }
+
+        public void RemoveCurrentAgent()
+        {
+            var temp = _agentOnNode;
+            _agentOnNode = null;
+            AgentRemoved?.Invoke(temp);
         }
 
         public void RemoveNeighboringNode(NavMeshGridNode nodeToRemove)
