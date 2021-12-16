@@ -2,20 +2,25 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace BlackSheeps
 {
     public class GridArea : NavMeshGridAgent
     {
+        public event Action PositionChanged;
+
         public event Action<NavMeshGridAgent> AgentEnteredArea; 
         public event Action<NavMeshGridAgent> AgentExitArea; 
 
         [SerializeField] private NavMeshGrid.NavMeshGrid _navMeshGrid;
 
-        private List<NavMeshGridNode> _nodesInArea;
+        private List<NavMeshGridNode> _nodesInArea = new List<NavMeshGridNode>();
         private List<NavMeshGridAgent> _agentsInArea = new List<NavMeshGridAgent>();
         
-        [SerializeField] private int _radius = 2;
+        [SerializeField] private int _radius = 1;
+
+        public IEnumerable<NavMeshGridNode> NodesInArea => _nodesInArea;
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
@@ -40,10 +45,19 @@ namespace BlackSheeps
                 transform.position = node.Position;
         }
 
+        public void RefreshPosition()
+        {
+            var closestNode = FindClosestNode();
+
+            if (closestNode == _currentNode)
+                return;
+
+            LinkToGridNode(closestNode);
+            PositionChanged?.Invoke();
+        }
+
         public void RefreshNodesInArea()
         {
-            _currentNode = FindClosestNode();
-
             foreach (var oldNode in _nodesInArea)
             {
                 oldNode.AgentLinked -= OnNodeDataChanged;
@@ -88,9 +102,7 @@ namespace BlackSheeps
                     if (!_agentsInArea.Contains(agentOnNode))
                     {
                         _agentsInArea.Add(agentOnNode);
-                        AgentEnteredArea?.Invoke(agentOnNode);
-
-                        Debug.Log("Agent entered area!");
+                        OnAgentEnterArea(agentOnNode);   
                     }
                 }
             }
@@ -104,9 +116,7 @@ namespace BlackSheeps
                 if (!nodeWithAgentExist)
                 {
                     agentsToRemove.Add(agent);
-                    AgentExitArea?.Invoke(agent);
-                    
-                    Debug.Log("Agent exit area!");
+                    OnAgentExitArea(agent);
                 }
             }
 
@@ -114,10 +124,18 @@ namespace BlackSheeps
                 _agentsInArea.Remove(agent);
         }
 
-        private void OnNodeDataChanged(NavMeshGridAgent agent)
+        public virtual void OnAgentEnterArea(NavMeshGridAgent agent)
         {
-            CheckObjectsInArea();
+            AgentEnteredArea?.Invoke(agent);
         }
+
+        public virtual void OnAgentExitArea(NavMeshGridAgent agent)
+        {
+            AgentExitArea?.Invoke(agent);
+        }
+
+
+        private void OnNodeDataChanged(NavMeshGridAgent agent) => CheckObjectsInArea();
 
         private NavMeshGridNode FindClosestNode()
         {

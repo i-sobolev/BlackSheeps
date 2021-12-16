@@ -2,12 +2,15 @@
 using NavMeshGrid;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace BlackSheeps
 {
     public class Unit : NavMeshGridAgent
     {
         private const float MovingSpeed = 1f;
+        
+        public NavMeshGridNode TargetNode { get; private set; }
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
@@ -26,19 +29,25 @@ namespace BlackSheeps
             BuildPath(node);
 
             if (_currentPath.IsFound && _currentPath.ResultPathNodes.Count > 0)
+            {
+                TargetNode = node;
                 StartMoving();
+            }
         }
 
-        public void StartMoving()
+        private void StartMoving()
         {
             transform.DOKill();
             transform.DOPath(
                 path: _currentPath.ResultPathNodes.Select(node => (Vector3)node.Position).ToArray(),
                 duration: MovingSpeed * _currentPath.ResultPathNodes.Count,
                 pathMode: PathMode.TopDown2D,
-                pathType: PathType.CatmullRom)
+                pathType: PathType.CatmullRom,
+                resolution: 5)
                 .OnWaypointChange(OnWayPointChanged)
-                .SetId(transform);
+                .SetId(transform)
+                .OnComplete(() => TargetNode = null)
+                .SetEase(Ease.Linear);
         }
 
         private void OnWayPointChanged(int nodeIndex)

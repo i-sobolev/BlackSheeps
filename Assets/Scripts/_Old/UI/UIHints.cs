@@ -26,22 +26,22 @@ public class UIHints : MonoBehaviour
 
     private void Update()
     {
-        if (_playerHorde.EnemyUnits.Count > 0)
-            ShowAttackHint();
+        //if (_playerHorde.EnemyUnits.Count > 0)
+        //    ShowAttackHint();
 
-        else
-            HideAttackHint();
+        //else
+        //    HideAttackHint();
 
-        if (_playerHorde.InteractionEntities.Count > 0)
-        {
-            RefreshClosestInteractionEntity();
-            ShowWorldHint();
-        }
+        //if (_playerHorde.InteractionEntities.Count > 0)
+        //{
+        //    RefreshClosestInteractionEntity();
+        //    ShowWorldHint();
+        //}
 
-        else
-        {
-            HideWorldHint();
-        }
+        //else
+        //{
+        //    HideWorldHint();
+        //}
     }
 
     public void ShowAttackHint()
@@ -78,33 +78,33 @@ public class UIHints : MonoBehaviour
 
     public void RefreshClosestInteractionEntity()
     {
-        if (!(_playerHorde.InteractionEntities.Count > 0))
-            return;
+        //if (!(_playerHorde.InteractionEntities.Count > 0))
+        //    return;
 
-        var closest = _playerHorde.InteractionEntities[0];
+        //var closest = _playerHorde._interactionEntities[0];
         
-        if (closest == null)
-        {
-            HideWorldHint();
-            return;
-        }
+        //if (closest == null)
+        //{
+        //    HideWorldHint();
+        //    return;
+        //}
         
-        var playerPosition = (Vector2)_playerHorde.transform.position;
+        //var playerPosition = (Vector2)_playerHorde.transform.position;
 
-        float minDistance = Vector2.Distance(playerPosition, closest.transform.position);
+        //float minDistance = Vector2.Distance(playerPosition, closest.transform.position);
 
-        _playerHorde.InteractionEntities.ForEach(ent => 
-        {
-            float newDistance = Vector2.Distance(playerPosition, ent.transform.position);
+        //_playerHorde.InteractionEntities.ForEach(ent => 
+        //{
+        //    float newDistance = Vector2.Distance(playerPosition, ent.transform.position);
 
-            if (newDistance < minDistance)
-            {
-                minDistance = newDistance;
-                closest = ent;
-            }
-        });
+        //    if (newDistance < minDistance)
+        //    {
+        //        minDistance = newDistance;
+        //        closest = ent;
+        //    }
+        //});
 
-        _worldHint.AttachedEntity = closest;
+        //_worldHint.AttachedEntity = closest;
     }
 }
 
@@ -117,7 +117,6 @@ public class WorldHint : MonoBehaviour
 
     private void Start()
     {
-        _camera = CameraMover.PlayerCamera;
         _transform = GetComponent<RectTransform>();
     }
 

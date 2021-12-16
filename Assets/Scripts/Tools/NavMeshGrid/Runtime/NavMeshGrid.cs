@@ -16,8 +16,14 @@ namespace NavMeshGrid
         public Vector2 NodesHorizontalOffset => _nodesHorizontalOffset;
         public IEnumerable<NavMeshGridNode> Nodes => _nodes;
 
-        public NavMeshGridNode RootNode { get; private set; }
+        private NavMeshGridNode _rootNode;
         
+        public NavMeshGridNode RootNode 
+        { 
+            get => _rootNode ??= _rootNode = _nodes.Find(node => node.Index == new Index(0, 0));
+            private set => _rootNode = value; 
+        }
+
         private void Reset()
         {
             _nodes.Clear();
@@ -107,7 +113,6 @@ namespace NavMeshGrid
             _nodesVerticalOffset = vertical;
         }
 
-
         public void RefreshNodesPositions()
         {
             var reachable = new Queue<NavMeshGridNode>();
@@ -135,7 +140,6 @@ namespace NavMeshGrid
                     reachable.Enqueue(neededNode);
                 }
             }
-
         }
 
         public Vector2 GetOffsetBySide(Side neighboringNodeSide)

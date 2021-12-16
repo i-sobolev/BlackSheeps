@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace NavMeshGrid
 {
@@ -11,41 +12,57 @@ namespace NavMeshGrid
 
         public bool IsFound => ResultPathNodes != null && ResultPathNodes.Count > 0;
 
-        public void Find(NavMeshGridNode from, NavMeshGridNode to)
+        public void Find(NavMeshGridNode from, NavMeshGridNode to, IPathNodesFilter filter = null)
         {
+            Profiler.BeginSample("PathFinding");
+            filter ??= new DefaultNodesFilter();
+
             var startNode = from;
             var targetNode = to;
 
             var totalCost = 0;
 
             var reachable = new List<PathNode>() { new PathNode(from, totalCost) };
-            var explored = new List<NavMeshGridNode>();
+            var explored = new List<Index>();
 
             while (reachable.Count > 0)
             {
+                Profiler.BeginSample("ChoosingNode");
                 var currentNode = ChooseNode(reachable, targetNode);
+                Profiler.EndSample();
 
                 if (currentNode.Node == targetNode)
+                {
                     ResultPathNodes = BuildPath(new PathNode(targetNode, 0) { PreviousNode = currentNode });
+                    break;
+                }
 
                 reachable.Remove(currentNode);
-                explored.Add(currentNode.Node);
+                explored.Add(currentNode.Node.Index);
 
                 ++totalCost;
 
-                var newReachable = currentNode.Node.AllNeighboringNodes.Select(node => new PathNode(node, totalCost));
+                Profiler.BeginSample("NewReachebleSelecting");
+                var newReachable = currentNode.Node.AllNeighboringNodes
+                    .Where(node => !explored.Contains(node.Index))
+                    .Where(node => !reachable.Exists(x => x.Node == node))
+                    .Select(node => new PathNode(node, totalCost));
+                Profiler.EndSample();
 
+                Profiler.BeginSample("FindingPath");
                 foreach (var newReachableNode in newReachable)
                 {
-                    if (newReachableNode.Node && !explored.Contains(newReachableNode.Node) && !reachable.Contains(reachable.Find((x) => x.Node == newReachableNode.Node)))
-                    {
-                        //if (newReachableNode.Node.Data.IsEmpty() == false)
-                        //    continue;
+                    Profiler.BeginSample("Filter");
+                    var nodeMatches = filter.NodeMathes(newReachableNode.Node);
+                    Profiler.EndSample();
 
+                    if (nodeMatches)
+                    {
                         newReachableNode.PreviousNode = currentNode;
                         reachable.Add(newReachableNode);
                     }
                 }
+                Profiler.EndSample();
             }
         }
 

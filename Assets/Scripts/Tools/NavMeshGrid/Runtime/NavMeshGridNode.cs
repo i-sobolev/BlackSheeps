@@ -10,7 +10,7 @@ namespace NavMeshGrid
         public event Action<NavMeshGridAgent> AgentLinked;
         public event Action<NavMeshGridAgent> AgentRemoved;
 
-        private NavMeshGridAgent _agentOnNode;
+        [SerializeField] private NavMeshGridAgent _agentOnNode;
 
         [SerializeField] private Index _index;
 

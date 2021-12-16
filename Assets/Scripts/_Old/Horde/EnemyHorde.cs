@@ -11,10 +11,10 @@ public class EnemyHorde : MonoBehaviour
 
     public void Update()
     {
-        if (_horde.EnemyUnits.Count > 0)
-            _horde.Attack();
+        //if (_horde.EnemyUnits.Count > 0)
+        //    _horde.Attack();
 
-        else
-            _horde.StopAttacking();
+        //else
+        //    _horde.StopAttacking();
     }
 }

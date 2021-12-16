@@ -17,9 +17,9 @@ namespace NavMeshGrid
         private bool _showNodesCustomOffsetsHandles = false;
 
         private readonly Color _nodesConnectionsColor = new Color(1, 1, 1, 0.1f);
-        
+
         protected NavMeshGrid Grid => target as NavMeshGrid;
-        
+
         public override void OnInspectorGUI()
         {
             ShowNodesArray(serializedObject.FindProperty("_nodes"), "Nodes list");
@@ -28,7 +28,7 @@ namespace NavMeshGrid
             {
                 if (EditorGUILayout.DropdownButton(new GUIContent(label), FocusType.Passive))
                     _nodesListShowed = !_nodesListShowed;
-                
+
                 if (_nodesListShowed)
                 {
                     for (int i = 0; i < list.arraySize; i++)
@@ -80,7 +80,7 @@ namespace NavMeshGrid
 
         public void OnSceneGUI()
         {
-            MoveRootNodeToTargetTransforPositins();
+            MoveRootNodeToTargetTransformPosition();
 
             DrawNodesConnections();
             DrawOffsetsHandles();
@@ -93,7 +93,7 @@ namespace NavMeshGrid
             DrawSettingsWindow();
         }
 
-        private void MoveRootNodeToTargetTransforPositins()
+        private void MoveRootNodeToTargetTransformPosition()
         {
             var currentTargetPosition = Grid.transform.position;
 
@@ -128,24 +128,25 @@ namespace NavMeshGrid
                 DrawNodeCustomOffsetHandle(_selectedNode);
 
                 Handles.BeginGUI();
-
-                var buttonSize = new Vector2(60f, 20f);
-
-                var removeNodeButtonClicked = GUI.Button(
-                position: new Rect(HandleUtility.WorldToGUIPoint(_selectedNode.Position + Vector2.up * 0.3f) - buttonSize * 0.5f, buttonSize),
-                text: $"-remove");
-
-                if (removeNodeButtonClicked)
                 {
-                    Grid.RemoveNode(_selectedNode);
+                    var buttonSize = new Vector2(60f, 20f);
 
-                    Debug.Log($"Node {_selectedNode.Index.Column} {_selectedNode.Index.Row} removed");
+                    var removeNodeButtonClicked = GUI.Button(
+                    position: new Rect(HandleUtility.WorldToGUIPoint(_selectedNode.Position + Vector2.up * 0.3f) - buttonSize * 0.5f, buttonSize),
+                    text: $"-remove");
 
-                    Grid.RefreshNodesPositions();
+                    if (removeNodeButtonClicked)
+                    {
+                        Grid.RemoveNode(_selectedNode);
 
-                    _selectedNode = null;
+                        Debug.Log($"Node {_selectedNode.Index.Column} {_selectedNode.Index.Row} removed");
+
+                        Grid.RefreshNodesPositions();
+
+                        _selectedNode = null;
+                    }
+
                 }
-
                 Handles.EndGUI();
 
                 SceneView.RepaintAll();
@@ -348,14 +349,14 @@ namespace NavMeshGrid
 
             Handles.color = Color.red;
             var nodesHorizontalOffset = Handles.FreeMoveHandle(rootNodePosition + Grid.NodesHorizontalOffset + handleOffset, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
-            
+
             Handles.color = Color.green;
             var nodesVerticalOffset = Handles.FreeMoveHandle(rootNodePosition + Grid.NodesVerticalOffset + handleOffset, Quaternion.identity, 0.1f, Vector2.zero, Handles.DotHandleCap);
 
             if (EditorGUI.EndChangeCheck())
             {
                 Grid.SetOffsets(
-                    (Vector2)nodesHorizontalOffset - rootNodePosition - handleOffset, 
+                    (Vector2)nodesHorizontalOffset - rootNodePosition - handleOffset,
                     (Vector2)nodesVerticalOffset - rootNodePosition - handleOffset);
 
                 Debug.Log("Offsets was changed");

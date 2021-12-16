@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BlackSheeps;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,7 @@ public class Rocket : InteractionEntity
 
     public UnityEvent OnRocketCollected;
 
-    public override void Interact(Unit interactedUnit)
+    public override void Interact(UnitOld interactedUnit)
     {
         base.Interact(interactedUnit);
 

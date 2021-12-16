@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BlackSheeps;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,7 @@ public class InteractionEntity : MonoBehaviour
     public Vector2 InteractPoint;
     public bool DestroyAfterInteract;
     
-    public virtual void Interact(Unit interactedUnit)
+    public virtual void Interact(UnitOld interactedUnit)
     {
         OnInteract?.Invoke();
 

@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
@@ -27,8 +25,6 @@ public class CameraScaler : MonoBehaviour
             _currentSizeLerp += Input.mouseScrollDelta.y * _scaleSpeed;
             _currentSizeLerp = Mathf.Clamp01(_currentSizeLerp);
             _camera.orthographicSize = GetCameraSizeByLerp(_currentSizeLerp);
-
-            this.LogValue($"current camera size = {GetCameraSizeByLerp(_currentSizeLerp)}");
         }
     }
 
